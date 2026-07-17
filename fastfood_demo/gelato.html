@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍨 ABDULAZIZ GELATO & MOJITO BAR — Artisan Sweets & Refreshing Drinks</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Outfit for refreshing, premium Tropical Glassmorphism -->
+    <title>🇮🇹 GELATERIA & MOJITO BAR DAL 2008 — Il Vero Sapore Italiano</title>
+    <!-- Google Fonts: Playfair Display, Cinzel & Lato for authentic 2008 Italian Trattoria/Gelateria Vibe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,600&family=Cinzel:wght@600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #070b14;
-            --mint-primary: #00e676;
-            --mint-glow: rgba(0, 230, 118, 0.4);
-            --berry-pink: #ff4081;
-            --berry-glow: rgba(255, 64, 129, 0.45);
-            --golden-cookie: #ffb300;
-            --glass-bg: rgba(16, 25, 43, 0.72);
-            --glass-border: rgba(0, 230, 118, 0.25);
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --tuscan-parchment: #fcf9f2;
+            --tuscan-cream: #f6efe1;
+            --tuscan-wine: #7a1c1c;
+            --tuscan-wine-dark: #581212;
+            --olive-green: #3b4d31;
+            --olive-dark: #283521;
+            --terracotta: #c85a32;
+            --bronze-gold: #c5a059;
+            --bronze-gold-light: #dfc288;
+            --text-dark: #2c221e;
+            --text-light: #fcf9f2;
+            --border-ornate: rgba(197, 160, 89, 0.45);
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Lato', serif;
             -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--tuscan-cream);
+            color: var(--text-dark);
             min-height: 100vh;
             overflow-x: hidden;
+            /* Authentic 2008 Italian Tuscan Street / Gelateria background with warm parchment tint */
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(0, 230, 118, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 85% 75%, rgba(255, 64, 129, 0.15) 0%, transparent 45%),
-                linear-gradient(to bottom, rgba(7, 11, 20, 0.88), rgba(7, 11, 20, 0.96)),
-                url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=1920&auto=format&fit=crop');
+                linear-gradient(to bottom, rgba(252, 249, 242, 0.92) 0%, rgba(246, 239, 225, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* 🌐 TROPICAL FROST NAVBAR */
+        /* 🇮🇹 2008 ITALIAN TRATTORIA RIBBON NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -55,37 +56,41 @@
             justify-content: space-between;
             align-items: center;
             padding: 1.2rem 6%;
-            background: rgba(7, 11, 20, 0.82);
-            backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            background: var(--tuscan-wine);
+            border-bottom: 4px solid var(--bronze-gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Cinzel', serif;
             font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, var(--mint-primary) 0%, #00b0ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--tuscan-parchment);
+            text-transform: uppercase;
             cursor: pointer;
-            text-shadow: 0 0 30px var(--mint-glow);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .logo-badge {
-            background: linear-gradient(135deg, var(--berry-pink), #ff6e40);
-            color: white;
-            font-size: 0.72rem;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 800;
+        .logo span.gold {
+            color: var(--bronze-gold-light);
+        }
+
+        .dal-badge {
+            background: var(--olive-green);
+            color: var(--tuscan-parchment);
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 15px var(--berry-glow);
+            border: 1px solid var(--bronze-gold);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .nav-links {
@@ -95,83 +100,98 @@
         }
 
         .nav-links a {
-            color: var(--text-main);
+            color: var(--tuscan-parchment);
             text-decoration: none;
-            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
             font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: var(--transition);
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-links a:hover {
-            color: var(--mint-primary);
+            color: var(--bronze-gold-light);
+            border-bottom-color: var(--bronze-gold-light);
         }
 
         .cart-btn {
-            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
-            color: #000;
-            border: none;
-            padding: 12px 26px;
-            border-radius: 50px;
-            font-family: 'Outfit', sans-serif;
+            background: var(--bronze-gold);
+            color: var(--tuscan-wine-dark);
+            border: 2px solid var(--bronze-gold-light);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
             font-weight: 800;
             font-size: 1.05rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: var(--transition);
-            box-shadow: 0 6px 25px var(--mint-glow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .cart-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 10px 35px rgba(0, 230, 118, 0.65);
+            background: var(--bronze-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(197, 160, 89, 0.5);
         }
 
         .cart-count {
-            background: #000;
-            color: var(--mint-primary);
+            background: var(--tuscan-wine-dark);
+            color: var(--tuscan-parchment);
             padding: 2px 9px;
-            border-radius: 20px;
+            border-radius: 12px;
             font-size: 0.85rem;
+            font-weight: 700;
         }
 
-        /* 🍧 HERO SECTION (Tropical Refreshing Vibe) */
+        /* 🇮🇹 2008 ITALIAN HERO SECTION */
         .hero {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
             align-items: center;
             gap: 4rem;
-            padding: 6rem 6% 5rem;
+            padding: 5.5rem 6% 4.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        .hero-text .sub-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--tuscan-wine);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 600;
+        }
+
         .hero-text h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 4.2rem;
-            font-weight: 900;
-            line-height: 1.1;
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            letter-spacing: -1.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--tuscan-wine-dark);
         }
 
-        .hero-text h1 span.mint {
-            color: var(--mint-primary);
-            filter: drop-shadow(0 0 20px rgba(0, 230, 118, 0.4));
-        }
-
-        .hero-text h1 span.berry {
-            background: linear-gradient(135deg, var(--berry-pink), var(--golden-cookie));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-text h1 span {
+            color: var(--terracotta);
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.8rem;
-            line-height: 1.7;
+            font-size: 1.2rem;
+            color: #4a3c36;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
             max-width: 580px;
         }
 
@@ -182,92 +202,114 @@
         }
 
         .cta-main {
-            background: linear-gradient(135deg, var(--berry-pink), #ff1744);
-            color: white;
-            border: none;
-            padding: 18px 38px;
-            border-radius: 50px;
+            background: var(--olive-green);
+            color: var(--tuscan-parchment);
+            border: 2px solid var(--olive-dark);
+            padding: 16px 36px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
             font-size: 1.15rem;
-            font-weight: 800;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 10px 30px var(--berry-glow);
+            box-shadow: 0 6px 18px rgba(59, 77, 49, 0.4);
         }
 
         .cta-main:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(255, 64, 129, 0.7);
+            background: var(--olive-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 77, 49, 0.6);
         }
 
         .cta-sec {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--mint-primary);
-            border: 1px solid var(--mint-primary);
-            padding: 18px 34px;
-            border-radius: 50px;
+            background: transparent;
+            color: var(--tuscan-wine);
+            border: 2px solid var(--tuscan-wine);
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
             font-size: 1.15rem;
             font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
         }
 
         .cta-sec:hover {
-            background: rgba(0, 230, 118, 0.15);
-            color: white;
+            background: var(--tuscan-wine);
+            color: var(--tuscan-parchment);
         }
 
-        /* HERO CARD (Realistic Mojito & Gelato Display) */
+        /* 2008 ITALIAN FRAMED HERO CARD */
         .hero-visual {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .hero-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 35px;
-            padding: 2.5rem;
+        .hero-frame-card {
+            background: var(--tuscan-parchment);
+            border: 4px solid var(--bronze-gold);
+            border-radius: 8px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-            backdrop-filter: blur(30px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
             position: relative;
             max-width: 440px;
             transition: var(--transition);
-            animation: float 5s ease-in-out infinite;
         }
 
-        .hero-card:hover {
-            transform: scale(1.03) translateY(-8px);
-            border-color: var(--mint-primary);
-            box-shadow: 0 35px 80px rgba(0, 230, 118, 0.3);
+        .hero-frame-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--terracotta);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
         }
 
-        .hero-card img {
+        .hero-frame-card img {
             width: 100%;
-            height: 320px;
+            height: 300px;
             object-fit: cover;
-            border-radius: 25px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            border-radius: 4px;
+            border: 2px solid var(--border-ornate);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        .floating-badge {
+        .frame-badge {
+            background: var(--terracotta);
+            color: var(--tuscan-parchment);
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            padding: 6px 16px;
+            border-radius: 3px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             position: absolute;
-            top: -15px;
-            right: 25px;
-            background: var(--berry-pink);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 0.9rem;
-            padding: 8px 18px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px var(--berry-glow);
+            top: -16px;
+            right: 20px;
+            border: 1px solid var(--bronze-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* 🍹 MENU CATEGORIES & FILTERS */
+        .hero-frame-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--tuscan-wine-dark);
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+
+        .hero-frame-card p.price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--olive-green);
+            font-weight: 800;
+        }
+
+        /* 🍨 MENU SECTION (2008 Italian Trattoria Elegance) */
         .menu-section {
             padding: 5rem 6%;
             max-width: 1400px;
@@ -276,50 +318,67 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.8rem;
         }
 
         .section-header h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 900;
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--tuscan-wine-dark);
             margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 3px;
+            background: var(--bronze-gold);
+            margin: 14px auto 0;
         }
 
         .section-header p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #5d4a42;
+            font-size: 1.25rem;
         }
 
         .filter-tabs {
             display: flex;
             justify-content: center;
             gap: 1.2rem;
-            margin-bottom: 3.8rem;
+            margin-bottom: 3.5rem;
             flex-wrap: wrap;
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: var(--text-main);
-            padding: 14px 30px;
-            border-radius: 35px;
+            background: var(--tuscan-parchment);
+            border: 2px solid var(--border-ornate);
+            color: var(--tuscan-wine-dark);
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
             font-size: 1.05rem;
-            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 700;
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
-            color: #000;
-            border-color: var(--mint-primary);
-            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
-            transform: translateY(-2px);
+            background: var(--tuscan-wine);
+            color: var(--tuscan-parchment);
+            border-color: var(--tuscan-wine);
+            box-shadow: 0 6px 18px rgba(122, 28, 28, 0.35);
         }
 
-        /* 🍨 REALISTIC SWEET & BEVERAGE CARDS */
+        /* 🍨 REALISTIC ITALIAN FRAMED CARDS */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -327,58 +386,60 @@
         }
 
         .food-card {
-            background: var(--glass-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 30px;
+            background: var(--tuscan-parchment);
+            border: 2px solid var(--border-ornate);
+            border-radius: 6px;
             overflow: hidden;
-            backdrop-filter: blur(20px);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
             position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .food-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--mint-primary);
-            box-shadow: 0 25px 55px rgba(0, 230, 118, 0.25);
+            transform: translateY(-8px);
+            border-color: var(--terracotta);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.22);
         }
 
         .food-img-wrapper {
             position: relative;
-            height: 240px;
+            height: 230px;
             overflow: hidden;
+            border-bottom: 2px solid var(--border-ornate);
         }
 
         .food-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
 
         .food-card:hover .food-img-wrapper img {
-            transform: scale(1.12);
+            transform: scale(1.08);
         }
 
         .food-tag {
             position: absolute;
-            top: 18px;
-            right: 18px;
-            background: rgba(0, 0, 0, 0.65);
-            color: var(--mint-primary);
-            border: 1px solid var(--mint-primary);
-            padding: 6px 14px;
-            border-radius: 14px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            backdrop-filter: blur(10px);
+            top: 15px;
+            right: 15px;
+            background: var(--olive-green);
+            color: var(--tuscan-parchment);
+            font-family: 'Cinzel', serif;
+            padding: 5px 14px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--bronze-gold);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
 
         .food-content {
-            padding: 1.8rem;
+            padding: 1.6rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -386,14 +447,15 @@
         }
 
         .food-title {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            font-weight: 800;
+            color: var(--tuscan-wine-dark);
             margin-bottom: 8px;
+            font-weight: 800;
         }
 
         .food-desc {
-            color: var(--text-muted);
+            color: #5d4a42;
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 1.8rem;
@@ -404,45 +466,45 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 1.2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px dashed var(--border-ornate);
         }
 
         .food-price {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--mint-primary);
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--olive-green);
+            font-weight: 800;
         }
 
         .add-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 18px;
-            font-weight: 800;
-            font-size: 1rem;
+            background: var(--tuscan-wine);
+            color: var(--tuscan-parchment);
+            border: 1px solid var(--tuscan-wine-dark);
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 700;
         }
 
         .add-btn:hover {
-            background: var(--mint-primary);
-            color: #000;
-            border-color: var(--mint-primary);
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--mint-glow);
+            background: var(--terracotta);
+            border-color: var(--terracotta);
+            transform: scale(1.04);
         }
 
-        /* 🛒 GLASS CART DRAWER */
+        /* 🛒 2008 ITALIAN TRATTORIA DRAWER MODAL */
         .cart-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
+            background: rgba(44, 34, 30, 0.75);
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
@@ -461,15 +523,14 @@
             width: 440px;
             max-width: 92vw;
             height: 100vh;
-            background: rgba(11, 17, 30, 0.95);
-            backdrop-filter: blur(35px);
-            border-left: 1px solid var(--glass-border);
+            background: var(--tuscan-cream);
+            border-left: 4px solid var(--bronze-gold);
             z-index: 2001;
             padding: 2.2rem;
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            box-shadow: -20px 0 60px rgba(0,0,0,0.85);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
         }
 
         .cart-overlay.open .cart-drawer {
@@ -481,29 +542,31 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid var(--bronze-gold);
         }
 
         .cart-header h3 {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Cinzel', serif;
             font-size: 1.7rem;
-            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--tuscan-wine-dark);
         }
 
         .close-cart {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--tuscan-wine);
             border: none;
             color: white;
             width: 38px;
             height: 38px;
-            border-radius: 50%;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 1.2rem;
             transition: var(--transition);
         }
 
         .close-cart:hover {
-            background: var(--berry-pink);
+            background: var(--terracotta);
             transform: rotate(90deg);
         }
 
@@ -517,9 +580,9 @@
         }
 
         .cart-item {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
+            background: var(--tuscan-parchment);
+            border: 1px solid var(--border-ornate);
+            border-radius: 6px;
             padding: 1rem;
             display: flex;
             align-items: center;
@@ -533,22 +596,23 @@
         }
 
         .item-img {
-            width: 65px;
-            height: 65px;
-            border-radius: 14px;
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
             object-fit: cover;
-            border: 1px solid var(--mint-primary);
+            border: 1px solid var(--bronze-gold);
         }
 
         .item-text h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
             font-weight: 700;
+            color: var(--tuscan-wine-dark);
         }
 
         .item-text span {
-            font-size: 0.9rem;
-            color: var(--mint-primary);
+            font-size: 0.95rem;
+            color: var(--olive-green);
             font-weight: 700;
         }
 
@@ -556,122 +620,124 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.45);
-            padding: 6px 12px;
-            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.06);
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-ornate);
         }
 
         .qty-btn {
             background: none;
             border: none;
-            color: white;
+            color: var(--tuscan-wine);
             font-size: 1.1rem;
             font-weight: 800;
             cursor: pointer;
+            padding: 0 4px;
         }
 
         .qty-btn:hover {
-            color: var(--mint-primary);
+            color: var(--terracotta);
         }
 
         .cart-footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--bronze-gold);
             padding-top: 1.5rem;
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Cinzel', serif;
             font-size: 1.5rem;
-            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             margin-bottom: 1.5rem;
+            color: var(--tuscan-wine-dark);
         }
 
         .checkout-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
-            color: #000;
-            border: none;
+            background: var(--olive-green);
+            color: var(--tuscan-parchment);
+            border: 2px solid var(--olive-dark);
             padding: 18px;
-            border-radius: 22px;
-            font-family: 'Outfit', sans-serif;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
             font-size: 1.2rem;
             font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 10px 30px var(--mint-glow);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
         }
 
         .checkout-btn:hover {
+            background: var(--olive-dark);
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 230, 118, 0.65);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-14px); }
+            box-shadow: 0 8px 25px rgba(59, 77, 49, 0.5);
         }
 
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
             .hero-actions { justify-content: center; }
-            .hero-text h1 { font-size: 3.2rem; }
+            .hero-text h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌐 TROPICAL FROST NAVBAR -->
+    <!-- 🇮🇹 2008 TRATTORIA NAVBAR -->
     <nav class="navbar">
         <div class="logo">
-            <span>🍨 ABDULAZIZ SWEETS</span>
-            <span class="logo-badge">Gelato & Mojito Bar</span>
+            <span>🇮🇹 GELATERIA <span class="gold">& MOJITO</span></span>
+            <span class="dal-badge">Dal 2008</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#hero">Home Bar</a></li>
-            <li><a href="#menu">Artisan Menu</a></li>
-            <li><a href="#about">Craft Bakery</a></li>
+            <li><a href="#hero">Benvenuti</a></li>
+            <li><a href="#menu">Menu Artigianale</a></li>
+            <li><a href="#about">Storia dal 2008</a></li>
         </ul>
         <button class="cart-btn" onclick="toggleCart()">
-            🛒 Your Order <span class="cart-count" id="cartCount">0</span>
+            🛒 Il Tuo Ordine <span class="cart-count" id="cartCount">0</span>
         </button>
     </nav>
 
-    <!-- 🍧 HERO SECTION -->
+    <!-- 🇮🇹 HERO SECTION -->
     <section class="hero" id="hero">
         <div class="hero-text">
-            <span style="color: var(--mint-primary); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">✨ Refreshing Summer & Sweet Bar Portal</span>
-            <h1>ARTISAN <span class="mint">GELATO</span> & <span class="berry">MOJITO BAR</span></h1>
-            <p>Hand-churned Italian Gelato, warm Belgian Chocolate Cookies, refreshing Virgin Mint Mojitos, and organic Tropical Smoothies. Crafted with 400+ UX design laws for instant ordering satisfaction.</p>
+            <span class="sub-title">✨ Autentico Stile Italiano — Ricetta Tradizionale del 2008</span>
+            <h1>IL VERO <span style="color: var(--olive-green)">GELATO</span> & <span style="color: var(--terracotta)">MOJITO BAR</span></h1>
+            <p>Dal 2008 prepariamo con passione il vero Gelato artigianale di Sicilia, biscotti caldi al cioccolato, Mojito freschi alla menta biologica e frullati di frutta fresca. Un'atmosfera classica d'Italia.</p>
             <div class="hero-actions">
-                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🍨 Explore Sweet Menu</button>
-                <button class="cta-sec" onclick="alert('⚡ Handcrafted cold and fresh to your table in 15 minutes!')">🍹 Mojito Express</button>
+                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🍨 Scopri il Menu</button>
+                <button class="cta-sec" onclick="alert('⚡ Consegna fresca e artigianale in 15 minuti dal nostro laboratorio!')">🍹 Mojito Express</button>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="hero-card">
-                <span class="floating-badge">🍃 #1 Summer Mojito</span>
-                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="Virgin Lime Mojito">
-                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 900; margin-top: 0.5rem;">Virgin Lime & Mint Mojito</h3>
-                <p style="color: var(--mint-primary); font-weight: 800; font-size: 1.4rem; margin-top: 6px;">$6.50 / 35,000 UZS</p>
+            <div class="hero-frame-card">
+                <span class="frame-badge">👑 Preferito dal 2008</span>
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Gelato al Pistacchio">
+                <h3>Gelato al Pistacchio di Bronte</h3>
+                <p class="price">€4.50 / $5.00</p>
             </div>
         </div>
     </section>
 
-    <!-- 🍹 MENU SECTION -->
+    <!-- 🍨 MENU SECTION -->
     <section class="menu-section" id="menu">
         <div class="section-header">
-            <h2>🔥 ARTISAN SWEET & BEVERAGE MENU</h2>
-            <p>Select your favorite gelato, freshly baked cookie, or refreshing drink with instant 1-click checkout</p>
+            <h2>🔥 MENU ARTIGIANALE DAL 2008</h2>
+            <p>Scegli le nostre specialità artigianali servite con la calda ospitalità e lo stile d'Italia del 2008</p>
         </div>
 
         <div class="filter-tabs">
-            <button class="tab-btn active" onclick="filterMenu('all', this)">✨ All Sweets & Drinks</button>
-            <button class="tab-btn" onclick="filterMenu('icecream', this)">🍨 Artisan Gelato</button>
-            <button class="tab-btn" onclick="filterMenu('cookies', this)">🍪 Warm Cookies</button>
-            <button class="tab-btn" onclick="filterMenu('mojito', this)">🍹 Mint Mojitos</button>
-            <button class="tab-btn" onclick="filterMenu('smoothies', this)">🥤 Fruit Smoothies</button>
+            <button class="tab-btn active" onclick="filterMenu('all', this)">✨ Tutti i Sapori</button>
+            <button class="tab-btn" onclick="filterMenu('icecream', this)">🍨 Gelato Artigianale</button>
+            <button class="tab-btn" onclick="filterMenu('cookies', this)">🍪 Biscotti Caldi</button>
+            <button class="tab-btn" onclick="filterMenu('mojito', this)">🍹 Mojito & Fresche</button>
+            <button class="tab-btn" onclick="filterMenu('smoothies', this)">🥤 Frullati Naturali</button>
         </div>
 
         <div class="menu-grid" id="menuGrid">
@@ -679,11 +745,11 @@
         </div>
     </section>
 
-    <!-- 🛒 GLASS CART DRAWER -->
+    <!-- 🛒 2008 ITALIAN TRATTORIA CART DRAWER -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-drawer">
             <div class="cart-header">
-                <h3>🛒 Your Refreshing Order</h3>
+                <h3>🛒 Il Tuo Ordine Artigianale</h3>
                 <button class="close-cart" onclick="toggleCart()">✕</button>
             </div>
             <div class="cart-items" id="cartItems">
@@ -691,25 +757,25 @@
             </div>
             <div class="cart-footer">
                 <div class="cart-total">
-                    <span>Total Amount:</span>
-                    <span id="cartTotalText" style="color: var(--mint-primary);">$0.00</span>
+                    <span>Totale Ordine:</span>
+                    <span id="cartTotalText" style="color: var(--olive-green);">€0.00</span>
                 </div>
-                <button class="checkout-btn" onclick="checkout()">🚀 Confirm Order (Instant Delivery)</button>
+                <button class="checkout-btn" onclick="checkout()">🚀 Conferma Ordine (Consegna)</button>
             </div>
         </div>
     </div>
 
-    <!-- JS LOGIC -->
+    <!-- JS LOGIC WITH ITALIAN ELEGANCE -->
     <script>
         const menuData = [
-            { id: 1, title: "Sicilian Pistachio Gelato (2 Scoops)", cat: "icecream", price: 7.50, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop", tag: "🍨 Best Seller", desc: "Authentic Sicilian green pistachio gelato swirled with roasted crushed pistachio nuts." },
-            { id: 2, title: "Warm Double Chocolate Chunk Cookie", cat: "cookies", price: 4.50, img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop", tag: "🍪 Oven Fresh", desc: "Baked fresh every hour with rich Belgian dark chocolate chunks and sea salt flakes." },
-            { id: 3, title: "Classic Lime & Mint Virgin Mojito", cat: "mojito", price: 6.50, img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop", tag: "🍃 Ice Cold", desc: "Fresh muddled organic mint leaves, lime juice, cane sugar, and sparkling soda water." },
-            { id: 4, title: "Tropical Mango Passionfruit Smoothie", cat: "smoothies", price: 7.00, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop", tag: "🥭 100% Organic", desc: "Fresh ripe Alphonso mango blended with passionfruit purée and coconut milk." },
-            { id: 5, title: "Madagascar Vanilla Bean & Berry Swirl", cat: "icecream", price: 6.80, img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=600&auto=format&fit=crop", tag: "🍧 Creamy", desc: "Rich vanilla bean gelato swirled with wild raspberry and strawberry compote." },
-            { id: 6, title: "Macadamia Nut & White Chocolate Cookie", cat: "cookies", price: 4.80, img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop", tag: "✨ Sweet Swirl", desc: "Buttery soft-baked cookie stuffed with Hawaiian macadamia nuts and sweet white chocolate." },
-            { id: 7, title: "Wild Strawberry & Basil Mojito", cat: "mojito", price: 7.20, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop", tag: "🍓 Berry Sparkle", desc: "Crushed wild strawberries muddled with fresh mint, basil, and sparkling lime water." },
-            { id: 8, title: "Acai & Wild Blueberry Super Smoothie", cat: "smoothies", price: 8.00, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=600&auto=format&fit=crop", tag: "🫐 Antioxidant", desc: "Amazonian acai berries blended with blueberries, banana, chia seeds, and almond milk." }
+            { id: 1, title: "Gelato al Pistacchio di Bronte (2 Palline)", cat: "icecream", price: 5.00, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop", tag: "🍨 Classico 2008", desc: "Vero gelato siciliano mantecato con pistacchi di Bronte tostati a mano e panna fresca." },
+            { id: 2, title: "Biscotto Caldo al Cioccolato Fondente", cat: "cookies", price: 3.50, img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop", tag: "🍪 Sfornato Ora", desc: "Ricetta originale della nonna dal 2008, con pezzi di puro cioccolato fondente belga e burro." },
+            { id: 3, title: "Mojito Classico alla Menta Piperita", cat: "mojito", price: 6.00, img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop", tag: "🍃 Rinfrescante", desc: "Menta fresca pestata, succo di lime spremuto fresco, zucchero di canna grezzo e soda frizzante." },
+            { id: 4, title: "Frullato Tropicale al Mango e Passione", cat: "smoothies", price: 6.50, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop", tag: "🥭 Naturale 100%", desc: "Mango maturo frullato con frutto della passione, pesca bianca italiana e latte di cocco." },
+            { id: 5, title: "Gelato alla Vaniglia Bourbon & Frutti di Bosco", cat: "icecream", price: 4.80, img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=600&auto=format&fit=crop", tag: "🍧 Cremoso", desc: "Morbido gelato alle bacche di vaniglia guarnito con composta di lamponi e fragoline del bosco." },
+            { id: 6, title: "Biscotto Artigianale Nocciola e Cioccolato", cat: "cookies", price: 3.80, img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop", tag: "✨ Specialità", desc: "Biscotto friabile arricchito con nocciole piemontesi e gocce di cioccolato bianco cremoso." },
+            { id: 7, title: "Mojito Fragola e Basilico Fresco", cat: "mojito", price: 6.50, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop", tag: "🍓 Estate 2008", desc: "Fragole mature pestate con foglie di basilico fresco, menta, succo di lime e acqua frizzante." },
+            { id: 8, title: "Frullato Superiore Mirtilli e Acai", cat: "smoothies", price: 7.00, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=600&auto=format&fit=crop", tag: "🫐 Energia Pure", desc: "Bacche di acai frullate con mirtilli neri selvatici, banana e latte di mandorla naturale." }
         ];
 
         let cart = [];
@@ -732,8 +798,8 @@
                             <p class="food-desc">${item.desc}</p>
                         </div>
                         <div class="food-footer">
-                            <span class="food-price">$${item.price.toFixed(2)}</span>
-                            <button class="add-btn" onclick="addToCart(${item.id})">+ Add to Order</button>
+                            <span class="food-price">€${item.price.toFixed(2)} / $${(item.price*1.1).toFixed(2)}</span>
+                            <button class="add-btn" onclick="addToCart(${item.id})">+ Aggiungi</button>
                         </div>
                     </div>
                 `;
@@ -758,7 +824,7 @@
             updateCartUI();
             
             const badge = document.getElementById('cartCount');
-            badge.style.transform = 'scale(1.5)';
+            badge.style.transform = 'scale(1.4)';
             setTimeout(() => badge.style.transform = 'scale(1)', 200);
         }
 
@@ -782,7 +848,7 @@
                         <img src="${item.img}" alt="${item.title}" class="item-img">
                         <div class="item-text">
                             <h4>${item.title}</h4>
-                            <span>$${(item.price * item.qty).toFixed(2)}</span>
+                            <span>€${(item.price * item.qty).toFixed(2)}</span>
                         </div>
                     </div>
                     <div class="item-qty">
@@ -794,7 +860,7 @@
                 itemsContainer.appendChild(elem);
             });
 
-            totalText.innerText = '$' + total.toFixed(2);
+            totalText.innerText = '€' + total.toFixed(2) + ' ($' + (total*1.1).toFixed(2) + ')';
             countBadge.innerText = count;
         }
 
@@ -814,11 +880,11 @@
 
         function checkout() {
             if (cart.length === 0) {
-                alert("⚠️ Your order bag is empty! Please choose your favorite sweet or refreshing drink first.");
+                alert("⚠️ Il tuo carrello è vuoto! Scegli prima le tue specialità preferite dal menu.");
                 return;
             }
             const total = document.getElementById('cartTotalText').innerText;
-            alert(`🎉 ORDER CONFIRMED! \n\nTotal payment: ${total} \n🚀 Your handcrafted gelato, warm cookies, and refreshing mojito will be delivered ice cold in 15 minutes! \n\n👑 Crafted by Abdulaziz AI Studio.`);
+            alert(`🎉 ORDINE CONFERMATO DAL 2008! \n\nTotale pagamento: ${total} \n🚀 Il vero Gelato artigianale e i Mojito freschi saranno recapitati a casa tua in 15 minuti! \n\n🇮🇹 Realizzato da Abdulaziz AI Studio.`);
             cart = [];
             updateCartUI();
             toggleCart();
