@@ -1,0 +1,26 @@
+# Environment keys & sensitive credentials
+.env
+*.env
+local_keys.json
+
+# Heavy AI model weights (GGUF, bin, safetensors)
+models/*.gguf
+models/*.bin
+models/*.safetensors
+*.gguf
+
+# Python cache & virtualenvs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# IDE & system files
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+{
+  "agent_name": "Abdulaziz Agent",
+  "creator": "Abdulaziz (Otajonov Abdulaziz)",
+  "version": "1.0.0-alpha",
+  "objective": "Autonomous AI Coding & Design Assistant designed to match and surpass Claude Code by combining deep AST/diff-based pair programming, multi-step agentic loop, and 400+ UI/UX book RAG aesthetics.",
+  "language": "Uzbek (Standard & Khorezmian dialect supported) and English",
+  "engines": {
+    "cloud_free_pool": [
+      "tencent/hy3:free",
+      "poolside/laguna-xs-2.1:free",
+      "cohere/north-mini-code:free",
+      "google/gemma-4-31b-it:free",
+      "google/gemma-4-26b-a4b-it:free",
+      "openai/gpt-oss-20b:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "qwen/qwen3-coder:free"
+    ],
+    "local_offline_model": {
+      "provider": "ollama",
+      "model": "Abdulaziz-v1",
+      "max_ram_usage_gb": 2.0
+    },
+    "custom_fine_tuned_model": {
+      "name": "Abdulaziz-v1.gguf",
+      "path": "D:/3D AI/Abdulaziz-Agent/models/Abdulaziz-v1.gguf",
+      "status": "In Development (Colab LoRA Fine-Tuning next step)"
+    }
+  },
+  "knowledge_base": {
+    "design_ui_ux_path": "D:/3D AI/Hermes agentning bilimlari/design-ui-ux-main/design-ui-ux-main/books/",
+    "rules": [
+      "Always verify code changes with local execution/linter checks before concluding.",
+      "Apply Glassmorphism, modern dark mode, and sleek micro-animations to all web UIs.",
+      "Never write basic placeholder code without user confirmation."
+    ]
+  }
+}
