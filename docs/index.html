@@ -3,46 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👑 ABDULAZIZ CRUNCH & BURGER — Futuristic Premium Fast Food</title>
-    <!-- Google Fonts: Outfit & Inter for ultra-modern typography -->
+    <title>🍔 ABDULAZIZ ARTISAN BURGER & WOOD — Est. 2015 Craft Fast Food</title>
+    <!-- Google Fonts: Montserrat, Oswald & Lora for authentic 2015 Artisan/Hipster Burger Vibe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0a0f;
-            --bg-card: rgba(22, 18, 30, 0.65);
-            --glass-border: rgba(255, 172, 0, 0.22);
-            --golden-primary: #ffac00;
-            --golden-glow: rgba(255, 172, 0, 0.4);
-            --fiery-red: #ff1e1e;
-            --fiery-glow: rgba(255, 30, 30, 0.45);
-            --text-main: #ffffff;
-            --text-muted: #a09dae;
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --wood-dark: #1e1510;
+            --wood-medium: #2d2017;
+            --wood-light: #443123;
+            --wood-accent: #c48a47;
+            --amber-gold: #e5a93b;
+            --chalk-white: #fcf8f2;
+            --kraft-paper: #f4ece1;
+            --vintage-red: #b8332a;
+            --text-dark: #231812;
+            --text-light: #fcf8f2;
+            --border-amber: rgba(229, 169, 59, 0.4);
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--wood-dark);
+            color: var(--text-light);
             min-height: 100vh;
             overflow-x: hidden;
+            /* 2015 Realistic Fast Food & Wooden Gastropub Background Photo overlay */
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(255, 30, 30, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 85% 75%, rgba(255, 172, 0, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(20, 15, 30, 0.8) 0%, var(--bg-dark) 100%);
+                linear-gradient(to bottom, rgba(30, 21, 16, 0.88) 0%, rgba(22, 15, 11, 0.92) 100%),
+                url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
         }
 
-        /* 👑 GLASSMORPHISM NAVBAR (Refactoring UI: Floating & Sticky Hierarchy) */
+        /* 🪵 2015 WOODEN & CHALKBOARD NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -50,107 +54,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background: rgba(10, 10, 15, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 1.2rem 5%;
+            background: rgba(30, 21, 16, 0.95);
+            border-bottom: 3px solid var(--amber-gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, var(--golden-primary) 0%, #ff5500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--chalk-white);
+            text-transform: uppercase;
             cursor: pointer;
-            text-shadow: 0 0 25px var(--golden-glow);
         }
 
-        .logo-badge {
-            background: linear-gradient(135deg, var(--fiery-red), #ff5500);
-            color: white;
-            font-size: 0.7rem;
+        .logo span.accent {
+            color: var(--amber-gold);
+        }
+
+        .stamp-badge {
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
             padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 800;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 15px var(--fiery-glow);
-            animation: pulse-glow 2s infinite;
+            border: 1px dashed var(--amber-gold);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-main);
+            color: var(--chalk-white);
             text-decoration: none;
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--golden-primary);
-            transition: var(--transition);
-            box-shadow: 0 0 10px var(--golden-primary);
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-links a:hover {
-            color: var(--golden-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--amber-gold);
+            border-bottom-color: var(--amber-gold);
         }
 
         .cart-btn {
-            background: linear-gradient(135deg, var(--golden-primary), #ff6a00);
-            color: #000;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1rem;
+            background: var(--amber-gold);
+            color: var(--wood-dark);
+            border: 2px solid #b38228;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
             transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(255, 172, 0, 0.35);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .cart-btn:hover {
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 10px 30px rgba(255, 172, 0, 0.6);
+            background: #f3be4d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(229, 169, 59, 0.4);
         }
 
         .cart-count {
-            background: #000;
-            color: var(--golden-primary);
-            padding: 2px 8px;
-            border-radius: 20px;
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            padding: 2px 9px;
+            border-radius: 12px;
             font-size: 0.85rem;
+            font-weight: 700;
         }
 
-        /* 🍔 HERO SECTION (Laws of UX: Fitts & Hick Psychology) */
+        /* 🍔 2015 ARTISAN HERO SECTION */
         .hero {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -161,26 +159,36 @@
             margin: 0 auto;
         }
 
+        .hero-text .sub-title {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: var(--amber-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
         .hero-text h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.1;
+            font-family: 'Oswald', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.05;
             margin-bottom: 1.5rem;
-            letter-spacing: -1.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--chalk-white);
+            text-shadow: 3px 3px 0px var(--wood-dark);
         }
 
         .hero-text h1 span {
-            background: linear-gradient(135deg, var(--golden-primary) 0%, var(--fiery-red) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(255, 172, 0, 0.3));
+            color: var(--amber-gold);
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
+            font-size: 1.15rem;
+            color: #d8cebe;
             margin-bottom: 2.5rem;
-            line-height: 1.6;
+            line-height: 1.7;
             max-width: 580px;
         }
 
@@ -191,278 +199,309 @@
         }
 
         .cta-main {
-            background: linear-gradient(135deg, var(--fiery-red), #cc0000);
-            color: white;
-            border: none;
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            border: 2px solid #8e231b;
             padding: 16px 36px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 800;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 10px 25px var(--fiery-glow);
+            box-shadow: 0 6px 18px rgba(184, 51, 42, 0.4);
         }
 
         .cta-main:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(255, 30, 30, 0.7);
+            background: #d13a30;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(184, 51, 42, 0.6);
         }
 
         .cta-sec {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
+            background: transparent;
+            color: var(--amber-gold);
+            border: 2px solid var(--amber-gold);
             padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
             font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
         }
 
         .cta-sec:hover {
-            background: rgba(255, 172, 0, 0.15);
-            border-color: var(--golden-primary);
+            background: rgba(229, 169, 59, 0.15);
+            color: var(--chalk-white);
         }
 
-        /* 3D FLOATING BURGER CARD IN HERO */
+        /* REALISTIC HERO BURGER CARD (2015 Wooden Board Vibe) */
         .hero-visual {
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .burger-display-card {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 35px;
-            padding: 3rem;
+        .hero-burger-board {
+            background: rgba(45, 32, 23, 0.92);
+            border: 3px solid var(--amber-gold);
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            backdrop-filter: blur(25px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
             position: relative;
-            transition: var(--transition);
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .burger-display-card:hover {
-            transform: scale(1.03) rotate(-1deg);
-            border-color: var(--golden-primary);
-            box-shadow: 0 35px 80px rgba(255, 172, 0, 0.3);
-        }
-
-        .burger-emoji {
-            font-size: 10rem;
-            filter: drop-shadow(0 20px 30px rgba(255, 150, 0, 0.5));
-            display: inline-block;
+            max-width: 460px;
             transition: var(--transition);
         }
 
-        .burger-display-card:hover .burger-emoji {
-            transform: scale(1.1) rotate(5deg);
+        .hero-burger-board:hover {
+            transform: translateY(-6px);
+            border-color: #f3be4d;
         }
 
-        .floating-badge {
+        .hero-burger-board img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(229, 169, 59, 0.3);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .board-tag {
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 4px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             position: absolute;
-            background: rgba(20, 15, 25, 0.9);
-            border: 1px solid var(--golden-primary);
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            top: -15px;
+            right: 20px;
+            border: 1px solid var(--amber-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        .badge-1 { top: 20px; left: -20px; animation: bounce-slow 3s infinite; }
-        .badge-2 { bottom: 30px; right: -25px; animation: bounce-slow 3.5s infinite 0.5s; }
+        .hero-burger-board h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--chalk-white);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
 
-        /* 🍟 MENU CATEGORIES & FILTERS (Color Theory: 60-30-10 Rule) */
+        .hero-burger-board p.price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: var(--amber-gold);
+            font-weight: 700;
+        }
+
+        /* 🍔 MENU SECTION (2015 Artisan Wood & Chalkboard) */
         .menu-section {
-            padding: 4rem 5%;
+            padding: 5rem 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--chalk-white);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: var(--amber-gold);
+            margin: 12px auto 0;
         }
 
         .section-header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: #d8cebe;
+            font-size: 1.2rem;
         }
 
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 1.2rem;
+            margin-bottom: 3.5rem;
             flex-wrap: wrap;
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-main);
+            background: rgba(45, 32, 23, 0.8);
+            border: 2px solid rgba(229, 169, 59, 0.3);
+            color: var(--chalk-white);
             padding: 12px 28px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 700;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, var(--golden-primary), #ff6a00);
-            color: #000;
-            border-color: var(--golden-primary);
-            box-shadow: 0 5px 20px rgba(255, 172, 0, 0.4);
-            transform: translateY(-2px);
+            background: var(--amber-gold);
+            color: var(--wood-dark);
+            border-color: var(--amber-gold);
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(229, 169, 59, 0.35);
         }
 
-        /* 🍱 GRID MENU ITEMS (Refactoring UI: Micro-cards & Spacing) */
+        /* 🍱 REALISTIC FOOD CARDS (2015 Artisan Kraft & Wood Vibe) */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.8rem;
         }
 
         .food-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 1.8rem;
-            backdrop-filter: blur(20px);
+            background: rgba(40, 28, 20, 0.92);
+            border: 2px solid rgba(229, 169, 59, 0.25);
+            border-radius: 10px;
+            overflow: hidden;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
             position: relative;
-            overflow: hidden;
         }
 
         .food-card:hover {
             transform: translateY(-8px);
-            border-color: var(--golden-primary);
-            box-shadow: 0 20px 45px rgba(255, 172, 0, 0.2);
+            border-color: var(--amber-gold);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.8);
         }
 
-        .food-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 172, 0, 0.08) 0%, transparent 60%);
-            opacity: 0;
-            transition: var(--transition);
+        .food-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
         }
 
-        .food-card:hover::before {
-            opacity: 1;
+        .food-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .food-img-container {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6.5rem;
-            margin-bottom: 1rem;
-            transition: var(--transition);
-            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
-        }
-
-        .food-card:hover .food-img-container {
-            transform: scale(1.15) rotate(4deg);
+        .food-card:hover .food-img-wrapper img {
+            transform: scale(1.08);
         }
 
         .food-tag {
             position: absolute;
-            top: 18px;
-            right: 18px;
-            background: rgba(255, 30, 30, 0.2);
-            border: 1px solid var(--fiery-red);
-            color: #ff6b6b;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 800;
+            top: 15px;
+            right: 15px;
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            font-family: 'Oswald', sans-serif;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--amber-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+        }
+
+        .food-content {
+            padding: 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .food-title {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--chalk-white);
             margin-bottom: 8px;
         }
 
         .food-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
+            color: #c9bcac;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
         }
 
         .food-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1.2rem;
+            border-top: 1px dashed rgba(229, 169, 59, 0.3);
         }
 
         .food-price {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--golden-primary);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            color: var(--amber-gold);
+            font-weight: 700;
         }
 
         .add-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 16px;
-            font-size: 1.4rem;
+            background: var(--vintage-red);
+            color: var(--chalk-white);
+            border: 1px solid #8e231b;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .add-btn:hover {
-            background: var(--golden-primary);
-            color: #000;
-            border-color: var(--golden-primary);
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 0 20px var(--golden-glow);
+            background: var(--amber-gold);
+            color: var(--wood-dark);
+            border-color: var(--amber-gold);
+            transform: scale(1.05);
         }
 
-        /* 🛒 GLASS CART DRAWER (Slide-over UX Modal) */
+        /* 🛒 2015 WOOD & KRAFT DRAWER MODAL */
         .cart-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.75);
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
@@ -477,19 +516,18 @@
         .cart-drawer {
             position: fixed;
             top: 0;
-            right: -450px;
-            width: 420px;
-            max-width: 90vw;
+            right: -460px;
+            width: 440px;
+            max-width: 92vw;
             height: 100vh;
-            background: rgba(18, 15, 26, 0.92);
-            backdrop-filter: blur(30px);
-            border-left: 1px solid var(--glass-border);
+            background: var(--wood-dark);
+            border-left: 3px solid var(--amber-gold);
             z-index: 2001;
-            padding: 2rem;
+            padding: 2.2rem;
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            box-shadow: -20px 0 50px rgba(0,0,0,0.8);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.9);
         }
 
         .cart-overlay.open .cart-drawer {
@@ -501,28 +539,31 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid var(--amber-gold);
         }
 
         .cart-header h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--chalk-white);
         }
 
         .close-cart {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--vintage-red);
             border: none;
             color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 1.2rem;
             transition: var(--transition);
         }
 
         .close-cart:hover {
-            background: var(--fiery-red);
+            background: #d13a30;
             transform: rotate(90deg);
         }
 
@@ -536,9 +577,9 @@
         }
 
         .cart-item {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
+            background: rgba(45, 32, 23, 0.9);
+            border: 1px solid rgba(229, 169, 59, 0.3);
+            border-radius: 8px;
             padding: 1rem;
             display: flex;
             align-items: center;
@@ -548,156 +589,153 @@
         .item-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .item-emoji {
-            font-size: 2.2rem;
+        .item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--amber-gold);
         }
 
         .item-text h4 {
-            font-size: 1rem;
-            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--chalk-white);
         }
 
         .item-text span {
-            font-size: 0.85rem;
-            color: var(--golden-primary);
+            font-size: 0.95rem;
+            color: var(--amber-gold);
             font-weight: 600;
         }
 
         .item-qty {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 4px 8px;
-            border-radius: 12px;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(229, 169, 59, 0.2);
         }
 
         .qty-btn {
             background: none;
             border: none;
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 800;
             cursor: pointer;
             padding: 0 4px;
         }
 
         .qty-btn:hover {
-            color: var(--golden-primary);
+            color: var(--amber-gold);
         }
 
         .cart-footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid var(--amber-gold);
             padding-top: 1.5rem;
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
-            font-size: 1.4rem;
-            font-weight: 900;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
 
         .checkout-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--golden-primary), var(--fiery-red));
-            color: white;
-            border: none;
+            background: var(--amber-gold);
+            color: var(--wood-dark);
+            border: 2px solid #b38228;
             padding: 18px;
-            border-radius: 20px;
-            font-size: 1.15rem;
-            font-weight: 800;
+            border-radius: 6px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 10px 25px rgba(255, 30, 30, 0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
         }
 
         .checkout-btn:hover {
+            background: #f3be4d;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 172, 0, 0.6);
-        }
-
-        /* ANIMATIONS */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-16px); }
-        }
-
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            box-shadow: 0 10px 25px rgba(229, 169, 59, 0.4);
         }
 
         /* Responsive Design */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
             .hero-actions { justify-content: center; }
-            .hero-text h1 { font-size: 2.8rem; }
+            .hero-text h1 { font-size: 3.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌐 NAVBAR -->
+    <!-- 🪵 2015 WOODEN NAVBAR -->
     <nav class="navbar">
         <div class="logo">
-            <span>👑 ABDULAZIZ CRUNCH</span>
-            <span class="logo-badge">McDonald's Killer</span>
+            <span>👑 ABDULAZIZ <span class="accent">ARTISAN</span> BURGER</span>
+            <span class="stamp-badge">Est. 2015</span>
         </div>
         <ul class="nav-links">
             <li><a href="#hero">Bosh sahifa</a></li>
-            <li><a href="#menu">Premium Meniu</a></li>
-            <li><a href="#about">Biz haqimizda</a></li>
+            <li><a href="#menu">Craft Meniu</a></li>
+            <li><a href="#about">Bizning Tarix</a></li>
         </ul>
         <button class="cart-btn" onclick="toggleCart()">
             🛒 Savatcha <span class="cart-count" id="cartCount">0</span>
         </button>
     </nav>
 
-    <!-- 🍔 HERO SECTION -->
+    <!-- 🍔 2015 ARTISAN HERO SECTION -->
     <section class="hero" id="hero">
         <div class="hero-text">
-            <span style="color: var(--golden-primary); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">✨ 400+ UI/UX Kitoblar Qoidasi Asosida</span>
-            <h1>KELAJAK MAZZASI — <span>QARISILDOQ WAGYU BURGERLAR</span></h1>
-            <p>McDonald's standartlaridan 10 barobar yuqori! Maxsus 100% Wagyu go'shti, oltin qaymoqli Cheddar va 400+ dizayn qoidalari bilan pishirilgan raqamli hamda reallik mazzasi.</p>
+            <span class="sub-title">✨ Haqiqiy 2015-Yil Hipster & Gastropub Usuli</span>
+            <h1>CRAFT WAGYU BURGERLAR — <span>REALISTIK TA'M</span></h1>
+            <p>100% tabiiy o'tin cho'g'ida pishirilgan Angus va Wagyu mol go'shti, qarisildoq rozmarinli kartoshka hamda klassik 2015-yilning yog'och teksturali retro-modern iliqligi.</p>
             <div class="hero-actions">
-                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🔥 Hozir Buyurtma Berish</button>
-                <button class="cta-sec" onclick="alert('⚡ 15 Daqiqada issiq holda yetkazamiz yoki pulingiz 100% qaytariladi!')">🚀 15 Daqiqada Yetkazish</button>
+                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🔥 Buyurtma Berish</button>
+                <button class="cta-sec" onclick="alert('⚡ 15 Daqiqada issiq va qarisildoq holda yetkazamiz!')">🪵 15 Daqiqada Yetkazish</button>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="burger-display-card">
-                <div class="floating-badge badge-1">🧀 Double Cheddar Gold</div>
-                <div class="burger-emoji">🍔</div>
-                <div class="floating-badge badge-2">🥩 100% Wagyu Beef Fire</div>
-                <h3 style="font-size: 1.8rem; font-weight: 900; margin-top: 1rem;">Qirollik Royal Burgeri</h3>
-                <p style="color: var(--golden-primary); font-weight: 800; font-size: 1.3rem; margin-top: 5px;">65,000 UZS</p>
+            <div class="hero-burger-board">
+                <span class="board-tag">👑 Top-1 Craft Choice</span>
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop" alt="Royal Wagyu Burger">
+                <h3>Royal Wagyu Artisan Burger</h3>
+                <p class="price">65,000 UZS</p>
             </div>
         </div>
     </section>
 
-    <!-- 🍟 MENU SECTION -->
+    <!-- 🍟 REALISTIC MENU SECTION -->
     <section class="menu-section" id="menu">
         <div class="section-header">
-            <h2>🔥 PREMIUM HAMDA QARISILDOQ MENIU</h2>
-            <p>Istalgan taomni bosing va o'ta tezkor avtonom buyurtma tizimini his eting</p>
+            <h2>🔥 REALISTIK CRAFT HAMDA QARISILDOQ MENIU</h2>
+            <p>Har bir taom fotosurati realistik darajada saralandi va 2015-yilning iliq yog'och uslubida taqdim etildi</p>
         </div>
 
         <div class="filter-tabs">
             <button class="tab-btn active" onclick="filterMenu('all', this)">✨ Barchasi</button>
-            <button class="tab-btn" onclick="filterMenu('burger', this)">🍔 Qirollik Burgerlari</button>
+            <button class="tab-btn" onclick="filterMenu('burger', this)">🍔 Craft Burgerlar</button>
             <button class="tab-btn" onclick="filterMenu('fries', this)">🍟 Qarisildoq Kartoshkalar</button>
-            <button class="tab-btn" onclick="filterMenu('drinks', this)">🥤 Neon Ichimliklar</button>
-            <button class="tab-btn" onclick="filterMenu('combo', this)">🍱 Mega Kombolar</button>
+            <button class="tab-btn" onclick="filterMenu('drinks', this)">🥤 Craft Ichimliklar</button>
+            <button class="tab-btn" onclick="filterMenu('combo', this)">🍱 Yog'och Board Kombo</button>
         </div>
 
         <div class="menu-grid" id="menuGrid">
@@ -705,11 +743,11 @@
         </div>
     </section>
 
-    <!-- 🛒 CART DRAWER MODAL -->
+    <!-- 🛒 2015 WOOD & KRAFT CART DRAWER -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-drawer">
             <div class="cart-header">
-                <h3>🛒 Sizning Buyurtmangiz</h3>
+                <h3>🛒 Sizning Craft Buyurtmangiz</h3>
                 <button class="close-cart" onclick="toggleCart()">✕</button>
             </div>
             <div class="cart-items" id="cartItems">
@@ -718,24 +756,24 @@
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Jami Summa:</span>
-                    <span id="cartTotalText" style="color: var(--golden-primary);">0 UZS</span>
+                    <span id="cartTotalText" style="color: var(--amber-gold);">0 UZS</span>
                 </div>
-                <button class="checkout-btn" onclick="checkout()">🚀 Buyurtmani Tasdiqlash (1-bosishda)</button>
+                <button class="checkout-btn" onclick="checkout()">🚀 Buyurtmani Tasdiqlash</button>
             </div>
         </div>
     </div>
 
-    <!-- JS LOGIC -->
+    <!-- JS LOGIC WITH REALISTIC PHOTOGRAPHY -->
     <script>
         const menuData = [
-            { id: 1, title: "Royal Wagyu Gold Burger", cat: "burger", price: 65000, emoji: "🍔", tag: "🔥 Top-1 Tanlov", desc: "Ikki qavat 100% Wagyu go'shti, eritilgan Cheddar va maxsus truffle sousi." },
-            { id: 2, title: "Crunchy Chicken Fire", cat: "burger", price: 52000, emoji: "🍗", tag: "🌶️ O'ta Achchiq", desc: "Oltin qarisildoq tovuq filesi, halapeyo qalampiri va sircha sous." },
-            { id: 3, title: "Abdulaziz Mega Combo", cat: "combo", price: 95000, emoji: "🍱", tag: "👑 Chegirma -20%", desc: "Royal Burger + Katta Fries + 0.7L Neon Cola + pishloqli sous." },
-            { id: 4, title: "Golden Crispy Fries (L)", cat: "fries", price: 22000, emoji: "🍟", tag: "✨ Yangi Pishgan", desc: "Dengiz tuzi va rozmarin bilan qovurilgan tillarang kartoshkacha." },
-            { id: 5, title: "Neon Cyber Cola (0.5L)", cat: "drinks", price: 15000, emoji: "🥤", tag: "❄️ Muzdek", desc: "Maxsus ko'k-limon ta'mli, tetiklashtiruvchi gazli ichimlik." },
-            { id: 6, title: "Cheesy Lava Fries", cat: "fries", price: 32000, emoji: "🧀", tag: "🔥 Hit", desc: "Qarisildoq kartoshka ustida qaynoq eritilgan Cheddar hamda bekon." },
-            { id: 7, title: "Double Black Angus", cat: "burger", price: 78000, emoji: "🍔", tag: "🥩 Gigant", desc: "Haqiqiy Angus mol go'shti, karamellangan piyoz va barbekyu sous." },
-            { id: 8, title: "Gold Berry Shake", cat: "drinks", price: 28000, emoji: "🍧", tag: "🍓 Shirinlik", desc: "Tabiiy qulupnay va vanilli muzqaymoqdan tayyorlangan quyuq sheyk." }
+            { id: 1, title: "Royal Wagyu Gold Burger", cat: "burger", price: 65000, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop", tag: "🔥 Top-1 Tanlov", desc: "Ikki qavat 100% Wagyu go'shti, eritilgan Cheddar, karamellangan piyoz va truffle sous." },
+            { id: 2, title: "Crunchy Chicken Fire", cat: "burger", price: 52000, img: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?q=80&w=600&auto=format&fit=crop", tag: "🌶️ O'ta Achchiq", desc: "Oltin qarisildoq tovuq filesi, halapeyo qalampiri va maxsus sarimsoqli sircha sous." },
+            { id: 3, title: "Abdulaziz Board Combo", cat: "combo", price: 95000, img: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=600&auto=format&fit=crop", tag: "👑 Chegirma -20%", desc: "Royal Wagyu Burger + Katta Rozmarinli Fries + 0.7L Craft Cola + pishloqli sarimsoq sous." },
+            { id: 4, title: "Artisan Crispy Fries (L)", cat: "fries", price: 22000, img: "https://images.unsplash.com/photo-1576107232684-1279f3908594?q=80&w=600&auto=format&fit=crop", tag: "✨ Yangi Pishgan", desc: "Dengiz tuzi, rozmarin va maxsus ziravorlar bilan qovurilgan tillarang kartoshkacha." },
+            { id: 5, title: "Vintage Craft Cola (0.5L)", cat: "drinks", price: 15000, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600&auto=format&fit=crop", tag: "❄️ Muzdek", desc: "Maxsus dolchin va vanil ta'mli, tetiklashtiruvchi klassik shisha idishdagi gazli ichimlik." },
+            { id: 6, title: "Cheesy Lava Bacon Fries", cat: "fries", price: 32000, img: "https://images.unsplash.com/photo-1585109649139-366815a0d713?q=80&w=600&auto=format&fit=crop", tag: "🔥 Hit", desc: "Qarisildoq kartoshka ustida qaynoq eritilgan oltin Cheddar hamda qovurilgan bekon." },
+            { id: 7, title: "Double Black Angus Craft", cat: "burger", price: 78000, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=600&auto=format&fit=crop", tag: "🥩 Gigant", desc: "Haqiqiy Angus mol go'shti, qovurilgan qo'ziqorin hamda o'tin cho'g'ida pishgan barbekyu sous." },
+            { id: 8, title: "Gourmet Berry Shake", cat: "drinks", price: 28000, img: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=600&auto=format&fit=crop", tag: "🍓 Shirinlik", desc: "Tabiiy o'rmon qulupnayi va qaymoqli vanilli muzqaymoqdan tayyorlangan quyuq sheyk." }
         ];
 
         let cart = [];
@@ -748,15 +786,19 @@
                 const card = document.createElement('div');
                 card.className = 'food-card';
                 card.innerHTML = `
-                    <span class="food-tag">${item.tag}</span>
-                    <div class="food-img-container">${item.emoji}</div>
-                    <div>
-                        <h3 class="food-title">${item.title}</h3>
-                        <p class="food-desc">${item.desc}</p>
+                    <div class="food-img-wrapper">
+                        <span class="food-tag">${item.tag}</span>
+                        <img src="${item.img}" alt="${item.title}" loading="lazy">
                     </div>
-                    <div class="food-footer">
-                        <span class="food-price">${item.price.toLocaleString()} UZS</span>
-                        <button class="add-btn" onclick="addToCart(${item.id})">+</button>
+                    <div class="food-content">
+                        <div>
+                            <h3 class="food-title">${item.title}</h3>
+                            <p class="food-desc">${item.desc}</p>
+                        </div>
+                        <div class="food-footer">
+                            <span class="food-price">${item.price.toLocaleString()} UZS</span>
+                            <button class="add-btn" onclick="addToCart(${item.id})">+ Qo'shish</button>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -781,7 +823,7 @@
             
             // Notification micro-animation
             const badge = document.getElementById('cartCount');
-            badge.style.transform = 'scale(1.5)';
+            badge.style.transform = 'scale(1.4)';
             setTimeout(() => badge.style.transform = 'scale(1)', 200);
         }
 
@@ -802,7 +844,7 @@
                 elem.className = 'cart-item';
                 elem.innerHTML = `
                     <div class="item-info">
-                        <span class="item-emoji">${item.emoji}</span>
+                        <img src="${item.img}" alt="${item.title}" class="item-img">
                         <div class="item-text">
                             <h4>${item.title}</h4>
                             <span>${(item.price * item.qty).toLocaleString()} UZS</span>
@@ -841,7 +883,7 @@
                 return;
             }
             const total = document.getElementById('cartTotalText').innerText;
-            alert(`🎉 BUYURTMA QABUL QILINDI! \n\nJami to'lov: ${total} \n🚀 Robot-kuryerlarimiz 15 daqiqada manzilga yetkazib borishadi! \n\n👑 Otajonov Abdulaziz Agent va 400+ Kitoblar kuchi bilan yaratildi.`);
+            alert(`🎉 BUYURTMA QABUL QILINDI! \n\nJami to'lov: ${total} \n🚀 2015-yilning iliq va qarisildoq mazzasi 15 daqiqada yetkaziladi! \n\n👑 Otajonov Abdulaziz Artisan Burger Joint.`);
             cart = [];
             updateCartUI();
             toggleCart();
