@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇮🇹 GELATERIA & MOJITO BAR DAL 2008 — Il Vero Sapore Italiano</title>
-    <!-- Google Fonts: Playfair Display, Cinzel & Lato for authentic 2008 Italian Trattoria/Gelateria Vibe -->
+    <title>🍨 LA DOLCE VITA DAL 2008 — Aesthetic Gelateria & Botanico Mojito Bar</title>
+    <!-- Google Fonts: Cormorant Garamond & Montserrat for Dreamy Editorial Italian Cinema Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,600&family=Cinzel:wght@600;700;800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --tuscan-parchment: #fcf9f2;
-            --tuscan-cream: #f6efe1;
-            --tuscan-wine: #7a1c1c;
-            --tuscan-wine-dark: #581212;
-            --olive-green: #3b4d31;
-            --olive-dark: #283521;
-            --terracotta: #c85a32;
-            --bronze-gold: #c5a059;
-            --bronze-gold-light: #dfc288;
-            --text-dark: #2c221e;
-            --text-light: #fcf9f2;
-            --border-ornate: rgba(197, 160, 89, 0.45);
-            --transition: all 0.3s ease;
+            --cream-bg: #faf7f0;
+            --linen-card: #f3eee3;
+            --olive-sage: #4a5842;
+            --olive-dark: #2d3628;
+            --terracotta-warm: #d96b43;
+            --terracotta-soft: #f4eae4;
+            --gold-muted: #c19a5b;
+            --text-dark: #2b2623;
+            --text-muted: #6e655f;
+            --border-soft: rgba(193, 154, 91, 0.25);
+            --shadow-aesthetic: 0 20px 45px -15px rgba(74, 88, 66, 0.15);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Lato', serif;
+            font-family: 'Montserrat', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--tuscan-cream);
+            background-color: var(--cream-bg);
             color: var(--text-dark);
             min-height: 100vh;
             overflow-x: hidden;
-            /* Authentic 2008 Italian Tuscan Street / Gelateria background with warm parchment tint */
             background-image: 
-                linear-gradient(to bottom, rgba(252, 249, 242, 0.92) 0%, rgba(246, 239, 225, 0.95) 100%),
-                url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+                radial-gradient(circle at 10% 20%, rgba(217, 107, 67, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(74, 88, 66, 0.05) 0%, transparent 40%);
         }
 
-        /* 🇮🇹 2008 ITALIAN TRATTORIA RIBBON NAVBAR */
+        /* ✨ AESTHETIC EDITORIAL NAVBAR */
         .navbar {
             position: sticky;
             top: 0;
@@ -55,261 +50,259 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 6%;
-            background: var(--tuscan-wine);
-            border-bottom: 4px solid var(--bronze-gold);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            padding: 1.5rem 6%;
+            background: rgba(250, 247, 240, 0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-soft);
         }
 
         .logo {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: var(--tuscan-parchment);
-            text-transform: uppercase;
+            flex-direction: column;
             cursor: pointer;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .logo span.gold {
-            color: var(--bronze-gold-light);
-        }
-
-        .dal-badge {
-            background: var(--olive-green);
-            color: var(--tuscan-parchment);
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            padding: 5px 12px;
-            border-radius: 3px;
+        .logo-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
             font-weight: 700;
             letter-spacing: 2px;
+            color: var(--olive-dark);
             text-transform: uppercase;
-            border: 1px solid var(--bronze-gold);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--terracotta-warm);
+            font-weight: 600;
+            margin-top: -3px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.2rem;
+            gap: 2.8rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--tuscan-parchment);
+            color: var(--text-dark);
             text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             transition: var(--transition);
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--terracotta-warm);
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--bronze-gold-light);
-            border-bottom-color: var(--bronze-gold-light);
+            color: var(--terracotta-warm);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .cart-btn {
-            background: var(--bronze-gold);
-            color: var(--tuscan-wine-dark);
-            border: 2px solid var(--bronze-gold-light);
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-weight: 800;
-            font-size: 1.05rem;
-            letter-spacing: 1px;
+            background: var(--olive-sage);
+            color: var(--cream-bg);
+            border: none;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(74, 88, 66, 0.25);
         }
 
         .cart-btn:hover {
-            background: var(--bronze-gold-light);
+            background: var(--olive-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(197, 160, 89, 0.5);
+            box-shadow: 0 12px 30px rgba(74, 88, 66, 0.35);
         }
 
         .cart-count {
-            background: var(--tuscan-wine-dark);
-            color: var(--tuscan-parchment);
-            padding: 2px 9px;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            background: var(--terracotta-warm);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 700;
         }
 
-        /* 🇮🇹 2008 ITALIAN HERO SECTION */
+        /* 🍧 AESTHETIC EDITORIAL HERO */
         .hero {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
-            gap: 4rem;
-            padding: 5.5rem 6% 4.5rem;
+            gap: 5rem;
+            padding: 6.5rem 6% 6rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .hero-text .sub-title {
-            font-family: 'Playfair Display', serif;
+        .hero-text .editorial-tag {
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            color: var(--tuscan-wine);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--terracotta-warm);
+            margin-bottom: 0.8rem;
             display: block;
-            font-weight: 600;
         }
 
         .hero-text h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--tuscan-wine-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.6rem;
+            font-weight: 600;
+            line-height: 1.08;
+            color: var(--olive-dark);
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.5px;
         }
 
-        .hero-text h1 span {
-            color: var(--terracotta);
+        .hero-text h1 i {
+            font-weight: 400;
+            color: var(--terracotta-warm);
         }
 
         .hero-text p {
-            font-size: 1.2rem;
-            color: #4a3c36;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 580px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            max-width: 540px;
+            font-weight: 400;
         }
 
         .hero-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.8rem;
             align-items: center;
         }
 
-        .cta-main {
-            background: var(--olive-green);
-            color: var(--tuscan-parchment);
-            border: 2px solid var(--olive-dark);
+        .cta-aesthetic {
+            background: var(--terracotta-warm);
+            color: white;
+            border: none;
             padding: 16px 36px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 6px 18px rgba(59, 77, 49, 0.4);
+            box-shadow: 0 10px 25px rgba(217, 107, 67, 0.3);
         }
 
-        .cta-main:hover {
-            background: var(--olive-dark);
+        .cta-aesthetic:hover {
+            background: #c55831;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 77, 49, 0.6);
+            box-shadow: 0 15px 35px rgba(217, 107, 67, 0.45);
         }
 
-        .cta-sec {
+        .cta-ghost {
             background: transparent;
-            color: var(--tuscan-wine);
-            border: 2px solid var(--tuscan-wine);
+            color: var(--olive-sage);
+            border: 1px solid var(--olive-sage);
             padding: 16px 32px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .cta-sec:hover {
-            background: var(--tuscan-wine);
-            color: var(--tuscan-parchment);
+        .cta-ghost:hover {
+            background: var(--olive-sage);
+            color: white;
         }
 
-        /* 2008 ITALIAN FRAMED HERO CARD */
+        /* 🏛️ ROMAN ARCH CARD (AESTHETIC SIGNATURE) */
         .hero-visual {
             display: flex;
             justify-content: center;
-            align-items: center;
-        }
-
-        .hero-frame-card {
-            background: var(--tuscan-parchment);
-            border: 4px solid var(--bronze-gold);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
             position: relative;
-            max-width: 440px;
+        }
+
+        .arch-card {
+            background: var(--linen-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 180px 180px 24px 24px;
+            padding: 1.8rem 1.8rem 2.4rem;
+            text-align: center;
+            box-shadow: var(--shadow-aesthetic);
+            max-width: 400px;
             transition: var(--transition);
+            position: relative;
         }
 
-        .hero-frame-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--terracotta);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        .arch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -15px rgba(74, 88, 66, 0.25);
         }
 
-        .hero-frame-card img {
+        .arch-card img {
             width: 100%;
-            height: 300px;
+            height: 380px;
             object-fit: cover;
-            border-radius: 4px;
-            border: 2px solid var(--border-ornate);
-            margin-bottom: 1.2rem;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 160px 160px 16px 16px;
+            margin-bottom: 1.6rem;
         }
 
-        .frame-badge {
-            background: var(--terracotta);
-            color: var(--tuscan-parchment);
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            padding: 6px 16px;
-            border-radius: 3px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .aesthetic-badge {
             position: absolute;
-            top: -16px;
-            right: 20px;
-            border: 1px solid var(--bronze-gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            top: 25px;
+            right: 25px;
+            background: rgba(250, 247, 240, 0.92);
+            color: var(--olive-dark);
+            backdrop-filter: blur(10px);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--border-soft);
         }
 
-        .hero-frame-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--tuscan-wine-dark);
-            margin-bottom: 6px;
-            font-weight: 800;
+        .arch-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            color: var(--olive-dark);
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .hero-frame-card p.price {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: var(--olive-green);
-            font-weight: 800;
+        .arch-card p.price {
+            font-size: 1.1rem;
+            color: var(--terracotta-warm);
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        /* 🍨 MENU SECTION (2008 Italian Trattoria Elegance) */
+        /* 🍧 EDITORIAL MENU SECTION */
         .menu-section {
             padding: 5rem 6%;
             max-width: 1400px;
@@ -318,128 +311,122 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3.8rem;
+            margin-bottom: 4.5rem;
+        }
+
+        .section-header span {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--terracotta-warm);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .section-header h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--tuscan-wine-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.4rem;
+            font-weight: 600;
+            color: var(--olive-dark);
             margin-bottom: 12px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            display: block;
-            width: 140px;
-            height: 3px;
-            background: var(--bronze-gold);
-            margin: 14px auto 0;
         }
 
         .section-header p {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            color: #5d4a42;
-            font-size: 1.25rem;
+            font-size: 1.35rem;
+            color: var(--text-muted);
         }
 
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 3.5rem;
+            gap: 1rem;
+            margin-bottom: 4.5rem;
             flex-wrap: wrap;
         }
 
         .tab-btn {
-            background: var(--tuscan-parchment);
-            border: 2px solid var(--border-ornate);
-            color: var(--tuscan-wine-dark);
+            background: transparent;
+            border: 1px solid var(--border-soft);
+            color: var(--text-dark);
             padding: 12px 28px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            letter-spacing: 1px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 700;
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: var(--tuscan-wine);
-            color: var(--tuscan-parchment);
-            border-color: var(--tuscan-wine);
-            box-shadow: 0 6px 18px rgba(122, 28, 28, 0.35);
+            background: var(--olive-sage);
+            color: white;
+            border-color: var(--olive-sage);
+            box-shadow: 0 8px 20px rgba(74, 88, 66, 0.2);
         }
 
-        /* 🍨 REALISTIC ITALIAN FRAMED CARDS */
+        /* 🍨 AESTHETIC CARDS GRID */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.8rem;
+            gap: 3.2rem;
         }
 
         .food-card {
-            background: var(--tuscan-parchment);
-            border: 2px solid var(--border-ornate);
-            border-radius: 6px;
+            background: var(--linen-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
             overflow: hidden;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            position: relative;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.08);
         }
 
         .food-card:hover {
             transform: translateY(-8px);
-            border-color: var(--terracotta);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+            border-color: var(--gold-muted);
+            box-shadow: var(--shadow-aesthetic);
         }
 
         .food-img-wrapper {
             position: relative;
-            height: 230px;
+            height: 250px;
             overflow: hidden;
-            border-bottom: 2px solid var(--border-ornate);
         }
 
         .food-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .food-card:hover .food-img-wrapper img {
             transform: scale(1.08);
         }
 
-        .food-tag {
+        .food-number {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--olive-green);
-            color: var(--tuscan-parchment);
-            font-family: 'Cinzel', serif;
-            padding: 5px 14px;
-            border-radius: 3px;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border: 1px solid var(--bronze-gold);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            top: 18px;
+            left: 18px;
+            background: rgba(250, 247, 240, 0.9);
+            color: var(--olive-dark);
+            backdrop-filter: blur(8px);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
         }
 
         .food-content {
-            padding: 1.6rem;
+            padding: 2rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -447,64 +434,65 @@
         }
 
         .food-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--tuscan-wine-dark);
-            margin-bottom: 8px;
-            font-weight: 800;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.65rem;
+            color: var(--olive-dark);
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.25;
         }
 
         .food-desc {
-            color: #5d4a42;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.8rem;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
         .food-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 1.2rem;
-            border-top: 1px dashed var(--border-ornate);
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(193, 154, 91, 0.2);
         }
 
         .food-price {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: var(--olive-green);
-            font-weight: 800;
-        }
-
-        .add-btn {
-            background: var(--tuscan-wine);
-            color: var(--tuscan-parchment);
-            border: 1px solid var(--tuscan-wine-dark);
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--terracotta-warm);
             font-weight: 700;
         }
 
-        .add-btn:hover {
-            background: var(--terracotta);
-            border-color: var(--terracotta);
-            transform: scale(1.04);
+        .add-btn {
+            background: transparent;
+            color: var(--olive-sage);
+            border: 1px solid var(--olive-sage);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        /* 🛒 2008 ITALIAN TRATTORIA DRAWER MODAL */
+        .add-btn:hover {
+            background: var(--olive-sage);
+            color: white;
+            transform: scale(1.03);
+        }
+
+        /* 🛒 AESTHETIC CART DRAWER */
         .cart-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(44, 34, 30, 0.75);
+            background: rgba(43, 38, 35, 0.65);
+            backdrop-filter: blur(6px);
             z-index: 2000;
             opacity: 0;
             pointer-events: none;
@@ -519,18 +507,18 @@
         .cart-drawer {
             position: fixed;
             top: 0;
-            right: -460px;
-            width: 440px;
+            right: -480px;
+            width: 460px;
             max-width: 92vw;
             height: 100vh;
-            background: var(--tuscan-cream);
-            border-left: 4px solid var(--bronze-gold);
+            background: var(--cream-bg);
+            border-left: 1px solid var(--border-soft);
             z-index: 2001;
-            padding: 2.2rem;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.15);
         }
 
         .cart-overlay.open .cart-drawer {
@@ -541,49 +529,49 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid var(--bronze-gold);
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border-soft);
         }
 
         .cart-header h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.7rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--tuscan-wine-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            color: var(--olive-dark);
+            font-weight: 600;
         }
 
         .close-cart {
-            background: var(--tuscan-wine);
+            background: var(--terracotta-soft);
             border: none;
-            color: white;
+            color: var(--terracotta-warm);
             width: 38px;
             height: 38px;
-            border-radius: 4px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: var(--transition);
         }
 
         .close-cart:hover {
-            background: var(--terracotta);
+            background: var(--terracotta-warm);
+            color: white;
             transform: rotate(90deg);
         }
 
         .cart-items {
             flex: 1;
             overflow-y: auto;
-            margin: 1.5rem 0;
+            margin: 1.8rem 0;
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.4rem;
         }
 
         .cart-item {
-            background: var(--tuscan-parchment);
-            border: 1px solid var(--border-ornate);
-            border-radius: 6px;
-            padding: 1rem;
+            background: var(--linen-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -592,151 +580,147 @@
         .item-info {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }
 
         .item-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 4px;
+            width: 65px;
+            height: 65px;
+            border-radius: 12px;
             object-fit: cover;
-            border: 1px solid var(--bronze-gold);
         }
 
         .item-text h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--tuscan-wine-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--olive-dark);
         }
 
         .item-text span {
-            font-size: 0.95rem;
-            color: var(--olive-green);
-            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--terracotta-warm);
+            font-weight: 600;
         }
 
         .item-qty {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.06);
-            padding: 6px 10px;
-            border-radius: 4px;
-            border: 1px solid var(--border-ornate);
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.04);
+            padding: 6px 12px;
+            border-radius: 30px;
         }
 
         .qty-btn {
             background: none;
             border: none;
-            color: var(--tuscan-wine);
+            color: var(--olive-sage);
             font-size: 1.1rem;
-            font-weight: 800;
+            font-weight: 700;
             cursor: pointer;
-            padding: 0 4px;
         }
 
         .qty-btn:hover {
-            color: var(--terracotta);
+            color: var(--terracotta-warm);
         }
 
         .cart-footer {
-            border-top: 2px solid var(--bronze-gold);
-            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-soft);
+            padding-top: 1.8rem;
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            color: var(--tuscan-wine-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--olive-dark);
+            font-weight: 600;
+            margin-bottom: 1.6rem;
         }
 
         .checkout-btn {
             width: 100%;
-            background: var(--olive-green);
-            color: var(--tuscan-parchment);
-            border: 2px solid var(--olive-dark);
+            background: var(--olive-sage);
+            color: white;
+            border: none;
             padding: 18px;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            font-weight: 800;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(74, 88, 66, 0.25);
         }
 
         .checkout-btn:hover {
             background: var(--olive-dark);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 77, 49, 0.5);
+            box-shadow: 0 15px 35px rgba(74, 88, 66, 0.35);
         }
 
         @media (max-width: 900px) {
-            .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
             .hero-actions { justify-content: center; }
-            .hero-text h1 { font-size: 3rem; }
+            .hero-text h1 { font-size: 3.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🇮🇹 2008 TRATTORIA NAVBAR -->
+    <!-- ✨ AESTHETIC NAVBAR -->
     <nav class="navbar">
         <div class="logo">
-            <span>🇮🇹 GELATERIA <span class="gold">& MOJITO</span></span>
-            <span class="dal-badge">Dal 2008</span>
+            <span class="logo-main">🍨 LA DOLCE VITA</span>
+            <span class="logo-sub">Gelateria & Botanico Bar dal 2008</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#hero">Benvenuti</a></li>
-            <li><a href="#menu">Menu Artigianale</a></li>
-            <li><a href="#about">Storia dal 2008</a></li>
+            <li><a href="#hero">L'Atmosfera</a></li>
+            <li><a href="#menu">Il Menu</a></li>
+            <li><a href="#about">Filosofia 2008</a></li>
         </ul>
         <button class="cart-btn" onclick="toggleCart()">
-            🛒 Il Tuo Ordine <span class="cart-count" id="cartCount">0</span>
+            🛒 Il Carrello <span class="cart-count" id="cartCount">0</span>
         </button>
     </nav>
 
-    <!-- 🇮🇹 HERO SECTION -->
+    <!-- 🍧 AESTHETIC EDITORIAL HERO -->
     <section class="hero" id="hero">
         <div class="hero-text">
-            <span class="sub-title">✨ Autentico Stile Italiano — Ricetta Tradizionale del 2008</span>
-            <h1>IL VERO <span style="color: var(--olive-green)">GELATO</span> & <span style="color: var(--terracotta)">MOJITO BAR</span></h1>
-            <p>Dal 2008 prepariamo con passione il vero Gelato artigianale di Sicilia, biscotti caldi al cioccolato, Mojito freschi alla menta biologica e frullati di frutta fresca. Un'atmosfera classica d'Italia.</p>
+            <span class="editorial-tag">✨ Autentica Gelateria & Trattoria dal 2008</span>
+            <h1>IL VERO SAPORE <i>dell'Estate Italiana</i></h1>
+            <p>Manteneremo viva l'eleganza estetica del 2008. Gelato artigianale di pistacchio di Bronte, biscotti caldi sfornati ogni ora, Mojito botanici alla menta fresca e frullati naturali per un'esperienza poetica e indimenticabile.</p>
             <div class="hero-actions">
-                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🍨 Scopri il Menu</button>
-                <button class="cta-sec" onclick="alert('⚡ Consegna fresca e artigianale in 15 minuti dal nostro laboratorio!')">🍹 Mojito Express</button>
+                <button class="cta-aesthetic" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🍨 Esplora le Delizie</button>
+                <button class="cta-ghost" onclick="alert('⚡ Consegna artigianale a casa tua in 15 minuti con cura estetica.')">🍹 Mojito Botanico</button>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="hero-frame-card">
-                <span class="frame-badge">👑 Preferito dal 2008</span>
-                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Gelato al Pistacchio">
-                <h3>Gelato al Pistacchio di Bronte</h3>
-                <p class="price">€4.50 / $5.00</p>
+            <div class="arch-card">
+                <span class="aesthetic-badge">🇮🇹 Dal 2008</span>
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" alt="Pistacchio Gelato">
+                <h3>Pistacchio di Bronte</h3>
+                <p class="price">€4.50 / Specialità Artigianale</p>
             </div>
         </div>
     </section>
 
-    <!-- 🍨 MENU SECTION -->
+    <!-- 🍨 EDITORIAL MENU SECTION -->
     <section class="menu-section" id="menu">
         <div class="section-header">
-            <h2>🔥 MENU ARTIGIANALE DAL 2008</h2>
-            <p>Scegli le nostre specialità artigianali servite con la calda ospitalità e lo stile d'Italia del 2008</p>
+            <span>— COLLEZIONE ESTATE 2008 —</span>
+            <h2>Delizie Artigianali & Botaniche</h2>
+            <p>Selezionate con cura per esaltare il vero gusto d'Italia e l'estetica senza tempo</p>
         </div>
 
         <div class="filter-tabs">
-            <button class="tab-btn active" onclick="filterMenu('all', this)">✨ Tutti i Sapori</button>
-            <button class="tab-btn" onclick="filterMenu('icecream', this)">🍨 Gelato Artigianale</button>
+            <button class="tab-btn active" onclick="filterMenu('all', this)">✨ Tutte le Creazioni</button>
+            <button class="tab-btn" onclick="filterMenu('icecream', this)">🍨 Gelato d'Autore</button>
             <button class="tab-btn" onclick="filterMenu('cookies', this)">🍪 Biscotti Caldi</button>
-            <button class="tab-btn" onclick="filterMenu('mojito', this)">🍹 Mojito & Fresche</button>
+            <button class="tab-btn" onclick="filterMenu('mojito', this)">🍹 Mojito Botanici</button>
             <button class="tab-btn" onclick="filterMenu('smoothies', this)">🥤 Frullati Naturali</button>
         </div>
 
@@ -745,11 +729,11 @@
         </div>
     </section>
 
-    <!-- 🛒 2008 ITALIAN TRATTORIA CART DRAWER -->
+    <!-- 🛒 AESTHETIC CART DRAWER -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-drawer">
             <div class="cart-header">
-                <h3>🛒 Il Tuo Ordine Artigianale</h3>
+                <h3>🛒 Il Tuo Ordine Estetico</h3>
                 <button class="close-cart" onclick="toggleCart()">✕</button>
             </div>
             <div class="cart-items" id="cartItems">
@@ -758,24 +742,24 @@
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Totale Ordine:</span>
-                    <span id="cartTotalText" style="color: var(--olive-green);">€0.00</span>
+                    <span id="cartTotalText" style="color: var(--terracotta-warm);">€0.00</span>
                 </div>
-                <button class="checkout-btn" onclick="checkout()">🚀 Conferma Ordine (Consegna)</button>
+                <button class="checkout-btn" onclick="checkout()">🚀 Conferma con Cura (Consegna)</button>
             </div>
         </div>
     </div>
 
-    <!-- JS LOGIC WITH ITALIAN ELEGANCE -->
+    <!-- JS LOGIC -->
     <script>
         const menuData = [
-            { id: 1, title: "Gelato al Pistacchio di Bronte (2 Palline)", cat: "icecream", price: 5.00, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop", tag: "🍨 Classico 2008", desc: "Vero gelato siciliano mantecato con pistacchi di Bronte tostati a mano e panna fresca." },
-            { id: 2, title: "Biscotto Caldo al Cioccolato Fondente", cat: "cookies", price: 3.50, img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop", tag: "🍪 Sfornato Ora", desc: "Ricetta originale della nonna dal 2008, con pezzi di puro cioccolato fondente belga e burro." },
-            { id: 3, title: "Mojito Classico alla Menta Piperita", cat: "mojito", price: 6.00, img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop", tag: "🍃 Rinfrescante", desc: "Menta fresca pestata, succo di lime spremuto fresco, zucchero di canna grezzo e soda frizzante." },
-            { id: 4, title: "Frullato Tropicale al Mango e Passione", cat: "smoothies", price: 6.50, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop", tag: "🥭 Naturale 100%", desc: "Mango maturo frullato con frutto della passione, pesca bianca italiana e latte di cocco." },
-            { id: 5, title: "Gelato alla Vaniglia Bourbon & Frutti di Bosco", cat: "icecream", price: 4.80, img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=600&auto=format&fit=crop", tag: "🍧 Cremoso", desc: "Morbido gelato alle bacche di vaniglia guarnito con composta di lamponi e fragoline del bosco." },
-            { id: 6, title: "Biscotto Artigianale Nocciola e Cioccolato", cat: "cookies", price: 3.80, img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop", tag: "✨ Specialità", desc: "Biscotto friabile arricchito con nocciole piemontesi e gocce di cioccolato bianco cremoso." },
-            { id: 7, title: "Mojito Fragola e Basilico Fresco", cat: "mojito", price: 6.50, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop", tag: "🍓 Estate 2008", desc: "Fragole mature pestate con foglie di basilico fresco, menta, succo di lime e acqua frizzante." },
-            { id: 8, title: "Frullato Superiore Mirtilli e Acai", cat: "smoothies", price: 7.00, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=600&auto=format&fit=crop", tag: "🫐 Energia Pure", desc: "Bacche di acai frullate con mirtilli neri selvatici, banana e latte di mandorla naturale." }
+            { id: 1, title: "Pistacchio Verde di Bronte DOP", cat: "icecream", price: 5.00, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop", num: "01 / Gelato", desc: "Vero gelato siciliano mantecato lentamente con pistacchi verdi tostati a mano e panna fresca d'alpeggio." },
+            { id: 2, title: "Biscotto Caldo al Cioccolato Belga", cat: "cookies", price: 3.50, img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop", num: "02 / Biscotto", desc: "Sfornato ogni ora con pezzi di cioccolato fondente belga al 72%, burro dolce e fiocchi di sale marino." },
+            { id: 3, title: "Mojito Botanico alla Menta Piperita", cat: "mojito", price: 6.00, img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop", num: "03 / Mojito", desc: "Menta fresca biologica pestata con lime spremuto al momento, zucchero grezzo di canna e soda purissima." },
+            { id: 4, title: "Frullato Vellutato di Mango e Passione", cat: "smoothies", price: 6.50, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop", num: "04 / Frullato", desc: "Mango maturo Alphonso frullato con frutto della passione odoroso e latte di cocco naturale al 100%." },
+            { id: 5, title: "Vaniglia Bourbon con Lampone Selvatico", cat: "icecream", price: 4.80, img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=600&auto=format&fit=crop", num: "05 / Gelato", desc: "Preziosa vaniglia del Madagascar guarnita con composta artigianale di lamponi e fragoline del bosco." },
+            { id: 6, title: "Biscotto Artigianale Nocciola & Caramello", cat: "cookies", price: 3.80, img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop", num: "06 / Biscotto", desc: "Impasto morbido alle nocciole del Piemonte IGP intrecciato con gocce di cioccolato bianco e caramello salato." },
+            { id: 7, title: "Mojito Estivo Fragola & Basilico", cat: "mojito", price: 6.50, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop", num: "07 / Mojito", desc: "Fragole mature pestate con foglie di basilico fresco genovese, lime succoso e acqua gassata di fonte." },
+            { id: 8, title: "Nettare Antiossidante Mirtillo e Acai", cat: "smoothies", price: 7.00, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=600&auto=format&fit=crop", num: "08 / Frullato", desc: "Bacche selvatiche di acai amazzonico miscelate con mirtilli neri, banana dolce e latte di mandorla." }
         ];
 
         let cart = [];
@@ -789,7 +773,7 @@
                 card.className = 'food-card';
                 card.innerHTML = `
                     <div class="food-img-wrapper">
-                        <span class="food-tag">${item.tag}</span>
+                        <span class="food-number">${item.num}</span>
                         <img src="${item.img}" alt="${item.title}" loading="lazy">
                     </div>
                     <div class="food-content">
@@ -798,7 +782,7 @@
                             <p class="food-desc">${item.desc}</p>
                         </div>
                         <div class="food-footer">
-                            <span class="food-price">€${item.price.toFixed(2)} / $${(item.price*1.1).toFixed(2)}</span>
+                            <span class="food-price">€${item.price.toFixed(2)}</span>
                             <button class="add-btn" onclick="addToCart(${item.id})">+ Aggiungi</button>
                         </div>
                     </div>
@@ -860,7 +844,7 @@
                 itemsContainer.appendChild(elem);
             });
 
-            totalText.innerText = '€' + total.toFixed(2) + ' ($' + (total*1.1).toFixed(2) + ')';
+            totalText.innerText = '€' + total.toFixed(2);
             countBadge.innerText = count;
         }
 
@@ -880,11 +864,11 @@
 
         function checkout() {
             if (cart.length === 0) {
-                alert("⚠️ Il tuo carrello è vuoto! Scegli prima le tue specialità preferite dal menu.");
+                alert("⚠️ Il tuo carrello estetico è vuoto! Scegli prima le tue delizie preferite dal menu.");
                 return;
             }
             const total = document.getElementById('cartTotalText').innerText;
-            alert(`🎉 ORDINE CONFERMATO DAL 2008! \n\nTotale pagamento: ${total} \n🚀 Il vero Gelato artigianale e i Mojito freschi saranno recapitati a casa tua in 15 minuti! \n\n🇮🇹 Realizzato da Abdulaziz AI Studio.`);
+            alert(`✨ LA DOLCE VITA — ORDINE CONFERMATO! \n\nTotale pagamento: ${total} \n🚀 Il vero Gelato artigianale e i Mojito botanici saranno recapitati al tuo indirizzo con cura ed estetica. \n\n🇮🇹 Realizzato da Abdulaziz AI Studio.`);
             cart = [];
             updateCartUI();
             toggleCart();
