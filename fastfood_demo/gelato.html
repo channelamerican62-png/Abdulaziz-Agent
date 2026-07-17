@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍨 ABDULAZIZ GELATO & MOJITO BAR — Artisan Sweets & Refreshing Drinks</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit for refreshing, premium Tropical Glassmorphism -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070b14;
+            --mint-primary: #00e676;
+            --mint-glow: rgba(0, 230, 118, 0.4);
+            --berry-pink: #ff4081;
+            --berry-glow: rgba(255, 64, 129, 0.45);
+            --golden-cookie: #ffb300;
+            --glass-bg: rgba(16, 25, 43, 0.72);
+            --glass-border: rgba(0, 230, 118, 0.25);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 230, 118, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(255, 64, 129, 0.15) 0%, transparent 45%),
+                linear-gradient(to bottom, rgba(7, 11, 20, 0.88), rgba(7, 11, 20, 0.96)),
+                url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* 🌐 TROPICAL FROST NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 6%;
+            background: rgba(7, 11, 20, 0.82);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--mint-primary) 0%, #00b0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            text-shadow: 0 0 30px var(--mint-glow);
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--berry-pink), #ff6e40);
+            color: white;
+            font-size: 0.72rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px var(--berry-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--mint-primary);
+        }
+
+        .cart-btn {
+            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
+            color: #000;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: 0 6px 25px var(--mint-glow);
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 35px rgba(0, 230, 118, 0.65);
+        }
+
+        .cart-count {
+            background: #000;
+            color: var(--mint-primary);
+            padding: 2px 9px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* 🍧 HERO SECTION (Tropical Refreshing Vibe) */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 6rem 6% 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-text h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-text h1 span.mint {
+            color: var(--mint-primary);
+            filter: drop-shadow(0 0 20px rgba(0, 230, 118, 0.4));
+        }
+
+        .hero-text h1 span.berry {
+            background: linear-gradient(135deg, var(--berry-pink), var(--golden-cookie));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.8rem;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .cta-main {
+            background: linear-gradient(135deg, var(--berry-pink), #ff1744);
+            color: white;
+            border: none;
+            padding: 18px 38px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px var(--berry-glow);
+        }
+
+        .cta-main:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(255, 64, 129, 0.7);
+        }
+
+        .cta-sec {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--mint-primary);
+            border: 1px solid var(--mint-primary);
+            padding: 18px 34px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-sec:hover {
+            background: rgba(0, 230, 118, 0.15);
+            color: white;
+        }
+
+        /* HERO CARD (Realistic Mojito & Gelato Display) */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            backdrop-filter: blur(30px);
+            position: relative;
+            max-width: 440px;
+            transition: var(--transition);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-card:hover {
+            transform: scale(1.03) translateY(-8px);
+            border-color: var(--mint-primary);
+            box-shadow: 0 35px 80px rgba(0, 230, 118, 0.3);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .floating-badge {
+            position: absolute;
+            top: -15px;
+            right: 25px;
+            background: var(--berry-pink);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px var(--berry-glow);
+        }
+
+        /* 🍹 MENU CATEGORIES & FILTERS */
+        .menu-section {
+            padding: 5rem 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 3.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+            padding: 14px 30px;
+            border-radius: 35px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
+            color: #000;
+            border-color: var(--mint-primary);
+            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* 🍨 REALISTIC SWEET & BEVERAGE CARDS */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.8rem;
+        }
+
+        .food-card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--mint-primary);
+            box-shadow: 0 25px 55px rgba(0, 230, 118, 0.25);
+        }
+
+        .food-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .food-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .food-card:hover .food-img-wrapper img {
+            transform: scale(1.12);
+        }
+
+        .food-tag {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: rgba(0, 0, 0, 0.65);
+            color: var(--mint-primary);
+            border: 1px solid var(--mint-primary);
+            padding: 6px 14px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+
+        .food-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .food-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .food-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+
+        .food-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .food-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--mint-primary);
+        }
+
+        .add-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 18px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover {
+            background: var(--mint-primary);
+            color: #000;
+            border-color: var(--mint-primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--mint-glow);
+        }
+
+        /* 🛒 GLASS CART DRAWER */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -460px;
+            width: 440px;
+            max-width: 92vw;
+            height: 100vh;
+            background: rgba(11, 17, 30, 0.95);
+            backdrop-filter: blur(35px);
+            border-left: 1px solid var(--glass-border);
+            z-index: 2001;
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.85);
+        }
+
+        .cart-overlay.open .cart-drawer {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+        }
+
+        .close-cart {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .close-cart:hover {
+            background: var(--berry-pink);
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .cart-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .item-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid var(--mint-primary);
+        }
+
+        .item-text h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .item-text span {
+            font-size: 0.9rem;
+            color: var(--mint-primary);
+            font-weight: 700;
+        }
+
+        .item-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 6px 12px;
+            border-radius: 14px;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .qty-btn:hover {
+            color: var(--mint-primary);
+        }
+
+        .cart-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--mint-primary), #00b0ff);
+            color: #000;
+            border: none;
+            padding: 18px;
+            border-radius: 22px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px var(--mint-glow);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 230, 118, 0.65);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-actions { justify-content: center; }
+            .hero-text h1 { font-size: 3.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🌐 TROPICAL FROST NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>🍨 ABDULAZIZ SWEETS</span>
+            <span class="logo-badge">Gelato & Mojito Bar</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home Bar</a></li>
+            <li><a href="#menu">Artisan Menu</a></li>
+            <li><a href="#about">Craft Bakery</a></li>
+        </ul>
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Your Order <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <!-- 🍧 HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <span style="color: var(--mint-primary); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">✨ Refreshing Summer & Sweet Bar Portal</span>
+            <h1>ARTISAN <span class="mint">GELATO</span> & <span class="berry">MOJITO BAR</span></h1>
+            <p>Hand-churned Italian Gelato, warm Belgian Chocolate Cookies, refreshing Virgin Mint Mojitos, and organic Tropical Smoothies. Crafted with 400+ UX design laws for instant ordering satisfaction.</p>
+            <div class="hero-actions">
+                <button class="cta-main" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">🍨 Explore Sweet Menu</button>
+                <button class="cta-sec" onclick="alert('⚡ Handcrafted cold and fresh to your table in 15 minutes!')">🍹 Mojito Express</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <span class="floating-badge">🍃 #1 Summer Mojito</span>
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="Virgin Lime Mojito">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 900; margin-top: 0.5rem;">Virgin Lime & Mint Mojito</h3>
+                <p style="color: var(--mint-primary); font-weight: 800; font-size: 1.4rem; margin-top: 6px;">$6.50 / 35,000 UZS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🍹 MENU SECTION -->
+    <section class="menu-section" id="menu">
+        <div class="section-header">
+            <h2>🔥 ARTISAN SWEET & BEVERAGE MENU</h2>
+            <p>Select your favorite gelato, freshly baked cookie, or refreshing drink with instant 1-click checkout</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterMenu('all', this)">✨ All Sweets & Drinks</button>
+            <button class="tab-btn" onclick="filterMenu('icecream', this)">🍨 Artisan Gelato</button>
+            <button class="tab-btn" onclick="filterMenu('cookies', this)">🍪 Warm Cookies</button>
+            <button class="tab-btn" onclick="filterMenu('mojito', this)">🍹 Mint Mojitos</button>
+            <button class="tab-btn" onclick="filterMenu('smoothies', this)">🥤 Fruit Smoothies</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items injected via JS -->
+        </div>
+    </section>
+
+    <!-- 🛒 GLASS CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>🛒 Your Refreshing Order</h3>
+                <button class="close-cart" onclick="toggleCart()">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items dynamically render here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total Amount:</span>
+                    <span id="cartTotalText" style="color: var(--mint-primary);">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">🚀 Confirm Order (Instant Delivery)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS LOGIC -->
+    <script>
+        const menuData = [
+            { id: 1, title: "Sicilian Pistachio Gelato (2 Scoops)", cat: "icecream", price: 7.50, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop", tag: "🍨 Best Seller", desc: "Authentic Sicilian green pistachio gelato swirled with roasted crushed pistachio nuts." },
+            { id: 2, title: "Warm Double Chocolate Chunk Cookie", cat: "cookies", price: 4.50, img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop", tag: "🍪 Oven Fresh", desc: "Baked fresh every hour with rich Belgian dark chocolate chunks and sea salt flakes." },
+            { id: 3, title: "Classic Lime & Mint Virgin Mojito", cat: "mojito", price: 6.50, img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=600&auto=format&fit=crop", tag: "🍃 Ice Cold", desc: "Fresh muddled organic mint leaves, lime juice, cane sugar, and sparkling soda water." },
+            { id: 4, title: "Tropical Mango Passionfruit Smoothie", cat: "smoothies", price: 7.00, img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop", tag: "🥭 100% Organic", desc: "Fresh ripe Alphonso mango blended with passionfruit purée and coconut milk." },
+            { id: 5, title: "Madagascar Vanilla Bean & Berry Swirl", cat: "icecream", price: 6.80, img: "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=600&auto=format&fit=crop", tag: "🍧 Creamy", desc: "Rich vanilla bean gelato swirled with wild raspberry and strawberry compote." },
+            { id: 6, title: "Macadamia Nut & White Chocolate Cookie", cat: "cookies", price: 4.80, img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop", tag: "✨ Sweet Swirl", desc: "Buttery soft-baked cookie stuffed with Hawaiian macadamia nuts and sweet white chocolate." },
+            { id: 7, title: "Wild Strawberry & Basil Mojito", cat: "mojito", price: 7.20, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop", tag: "🍓 Berry Sparkle", desc: "Crushed wild strawberries muddled with fresh mint, basil, and sparkling lime water." },
+            { id: 8, title: "Acai & Wild Blueberry Super Smoothie", cat: "smoothies", price: 8.00, img: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=600&auto=format&fit=crop", tag: "🫐 Antioxidant", desc: "Amazonian acai berries blended with blueberries, banana, chia seeds, and almond milk." }
+        ];
+
+        let cart = [];
+
+        function renderMenu(filterCat = 'all') {
+            const grid = document.getElementById('menuGrid');
+            grid.innerHTML = '';
+
+            menuData.filter(item => filterCat === 'all' || item.cat === filterCat).forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'food-card';
+                card.innerHTML = `
+                    <div class="food-img-wrapper">
+                        <span class="food-tag">${item.tag}</span>
+                        <img src="${item.img}" alt="${item.title}" loading="lazy">
+                    </div>
+                    <div class="food-content">
+                        <div>
+                            <h3 class="food-title">${item.title}</h3>
+                            <p class="food-desc">${item.desc}</p>
+                        </div>
+                        <div class="food-footer">
+                            <span class="food-price">$${item.price.toFixed(2)}</span>
+                            <button class="add-btn" onclick="addToCart(${item.id})">+ Add to Order</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMenu(cat, btnElement) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+            renderMenu(cat);
+        }
+
+        function addToCart(id) {
+            const item = menuData.find(i => i.id === id);
+            const existing = cart.find(c => c.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            
+            const badge = document.getElementById('cartCount');
+            badge.style.transform = 'scale(1.5)';
+            setTimeout(() => badge.style.transform = 'scale(1)', 200);
+        }
+
+        function updateCartUI() {
+            const itemsContainer = document.getElementById('cartItems');
+            const totalText = document.getElementById('cartTotalText');
+            const countBadge = document.getElementById('cartCount');
+
+            itemsContainer.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                count += item.qty;
+
+                const elem = document.createElement('div');
+                elem.className = 'cart-item';
+                elem.innerHTML = `
+                    <div class="item-info">
+                        <img src="${item.img}" alt="${item.title}" class="item-img">
+                        <div class="item-text">
+                            <h4>${item.title}</h4>
+                            <span>$${(item.price * item.qty).toFixed(2)}</span>
+                        </div>
+                    </div>
+                    <div class="item-qty">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                `;
+                itemsContainer.appendChild(elem);
+            });
+
+            totalText.innerText = '$' + total.toFixed(2);
+            countBadge.innerText = count;
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(c => c.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(c => c.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartOverlay').classList.toggle('open');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("⚠️ Your order bag is empty! Please choose your favorite sweet or refreshing drink first.");
+                return;
+            }
+            const total = document.getElementById('cartTotalText').innerText;
+            alert(`🎉 ORDER CONFIRMED! \n\nTotal payment: ${total} \n🚀 Your handcrafted gelato, warm cookies, and refreshing mojito will be delivered ice cold in 15 minutes! \n\n👑 Crafted by Abdulaziz AI Studio.`);
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        renderMenu('all');
+    </script>
+</body>
+</html>
