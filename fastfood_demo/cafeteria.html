@@ -3,760 +3,975 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafeteriya | Premium Coffee & Engineering</title>
-    <!-- Google Fonts for that clean, premium Awwwards look -->
+    <title>CoffeeTech® | Solar Eco Automated Roast Master (Cafeteriya Edition)</title>
+    <!-- Google Fonts for exact CoffeeTech typography (Inter, Plus Jakarta Sans, Outfit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <!-- GSAP for smooth animations -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-light: #f4f4f0;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent: #d4af37; /* Premium Gold */
-            --border-color: rgba(255, 255, 255, 0.1);
-            --border-light: rgba(0, 0, 0, 0.1);
+            --bg-dark: #0d0d0d;
+            --bg-light: #ece8df;
+            --accent-orange: #e84a24;
+            --accent-orange-hover: #ff562e;
+            --text-dark: #121212;
+            --text-light: #ffffff;
+            --text-muted: #8c8c8c;
+            --border-dark: rgba(255, 255, 255, 0.12);
+            --border-light: rgba(0, 0, 0, 0.12);
+            --card-light: #f6f4ee;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
-            color: var(--text-main);
+            color: var(--text-light);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* NOISE GRAIN OVERLAY */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.04;
-            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-        }
-
-        /* PRELOADER */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-dark);
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .preloader-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--accent);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-
-        .preloader-text span {
-            display: inline-block;
-            transform: translateY(100%);
-        }
-
-        .progress-bar-container {
-            width: 200px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--accent);
         }
 
         /* CUSTOM CURSOR */
         .cursor {
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent);
+            width: 16px;
+            height: 16px;
+            background: var(--accent-orange);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 9998;
+            z-index: 99999;
             transform: translate(-50%, -50%);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
             mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9997;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .cursor.active {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--accent);
-            mix-blend-mode: normal;
-        }
-        
-        .cursor.active + .cursor-follower {
-            width: 0;
-            height: 0;
-            opacity: 0;
         }
 
         @media (hover: none) and (pointer: coarse) {
-            .cursor, .cursor-follower {
-                display: none;
-            }
+            .cursor { display: none; }
         }
 
-        /* NAVIGATION */
-        nav {
+        /* NAVBAR EXACT COPY */
+        .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 2.5rem 5vw;
+            padding: 1.6rem 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
-            mix-blend-mode: difference;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-dark);
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: white;
+            text-decoration: none;
         }
 
-        .nav-links {
+        .logo span.icon {
+            color: var(--accent-orange);
+            font-size: 1.6rem;
+        }
+
+        .nav-center {
             display: flex;
-            gap: 4rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
-        .nav-links a {
-            color: var(--text-main);
+        .nav-center a {
+            color: #ccc;
             text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
         }
 
-        .nav-links a::after {
+        .nav-center a:hover, .nav-center a.active {
+            color: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .btn-products {
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-products:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-contact {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border-dark);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-contact:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* EXACT HERO CAROUSEL SECTION */
+        .hero-carousel {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 8rem 5vw 4rem;
+            position: relative;
+            background: radial-gradient(circle at 50% 55%, rgba(232, 74, 36, 0.08) 0%, transparent 60%);
+        }
+
+        .pills-bar {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-dark);
+            color: #ddd;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 5px 14px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(4.5rem, 11vw, 9.5rem);
+            font-weight: 800;
+            color: var(--accent-orange);
+            letter-spacing: -3px;
+            line-height: 0.95;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 520px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0 3rem;
+        }
+
+        .machine-stage {
+            position: relative;
+            width: 480px;
+            height: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .machine-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.85));
+            transition: var(--transition);
+        }
+
+        /* Side blurred machines just like in the video! */
+        .machine-side {
+            position: absolute;
+            top: 50%;
+            width: 380px;
+            height: 380px;
+            transform: translateY(-50%);
+            opacity: 0.22;
+            filter: blur(14px) grayscale(60%);
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .machine-side.left { left: 2%; }
+        .machine-side.right { right: 2%; }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-dark);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 20;
+        }
+
+        .nav-arrow:hover {
+            background: white;
+            color: var(--bg-dark);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.left { left: 10%; }
+        .nav-arrow.right { right: 10%; }
+
+        .scroll-down-hint {
+            color: #888;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .scroll-down-hint:hover {
+            color: var(--accent-orange);
+            transform: translateY(3px);
+        }
+
+        /* PRODUCT DETAILS TEXT BLOCK */
+        .details-section {
+            padding: 6rem 6% 8rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .details-title {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 1.5rem 0 2.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .details-desc {
+            font-size: 1.25rem;
+            color: #aaa;
+            line-height: 1.8;
+            max-width: 780px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .btn-quote {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-quote:hover {
+            background: white;
+            color: var(--bg-dark);
+        }
+
+        /* EXACT INTERACTIVE DIAGRAM SECTION (LIGHT BEIGE BG) */
+        .diagram-section {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 8rem 6%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .diagram-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .diagram-img {
+            max-width: 90%;
+            max-height: 600px;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 50px rgba(0,0,0,0.18));
+        }
+
+        /* Pulsing Red Hotspots on the Machine */
+        .hotspot {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: var(--accent-orange);
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(232, 74, 36, 0.8);
+            transition: var(--transition);
+        }
+
+        .hotspot::after {
             content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-orange);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        .hotspot:hover {
+            transform: scale(1.25);
+            background: #000;
+        }
+
+        .hotspot-1 { top: 32%; left: 48%; } /* Hopper/Collector */
+        .hotspot-2 { top: 58%; left: 35%; } /* Drum Shield */
+        .hotspot-3 { top: 78%; left: 62%; } /* Cooling Tray */
+        .hotspot-4 { top: 48%; left: 22%; } /* Touch Screen */
+
+        .diagram-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .spec-card {
+            background: var(--card-light);
+            border: 1px solid var(--border-light);
+            padding: 1.6rem;
+            border-radius: 14px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .spec-card:hover, .spec-card.active {
+            background: white;
+            border-color: var(--accent-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .spec-card h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .spec-card p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* INFINITE MARQUEE EXACT COPY */
+        .marquee-section {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding: 4rem 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: scrollMarquee 25s linear infinite;
+        }
+
+        .marquee-text {
+            font-size: clamp(4rem, 9vw, 8rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .marquee-text span {
+            color: #bbb;
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* TECHNOLOGY FEATURES GRID (WITH + / - AND SHOW ALL) */
+        .features-grid-section {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding: 8rem 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .grid-header h2 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .grid-header h2 span.badge {
+            font-size: 1rem;
+            background: #ddd;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .grid-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .ctrl-btn {
+            background: white;
+            border: 1px solid var(--border-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--accent-orange);
+            color: white;
+            border-color: var(--accent-orange);
+        }
+
+        .btn-show-all {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-show-all:hover {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        .tech-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .tech-card {
+            position: relative;
+            height: 300px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #000;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+        }
+
+        .tech-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tech-card:hover img {
+            transform: scale(1.1);
+            opacity: 0.65;
+        }
+
+        .tech-card-content {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 1px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 5vw;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 12vw, 10rem);
-            font-weight: 400;
-            line-height: 0.9;
-            margin-bottom: 2rem;
-            z-index: 2;
-        }
-
-        .hero h1 .line {
-            display: block;
-            overflow: hidden;
-            padding-bottom: 10px;
-        }
-
-        .hero h1 span.word {
-            display: inline-block;
-            transform: translateY(110%);
-        }
-
-        .hero h1 span.gold {
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        .hero p {
-            max-width: 450px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-left: 15vw;
-            z-index: 2;
-            opacity: 0;
-        }
-
-        .hero-img-container {
-            position: absolute;
-            top: 15%;
-            right: 5vw;
-            width: 40vw;
-            height: 70vh;
-            overflow: hidden;
-            opacity: 0;
-        }
-
-        .hero-img-container img {
-            width: 100%;
-            height: 120%; /* Extra height for parallax */
-            object-fit: cover;
-            filter: grayscale(80%) contrast(1.1);
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            padding: 12rem 5vw;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            background-color: var(--bg-light);
-            color: var(--bg-dark);
-            position: relative;
-        }
-
-        .about-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 5vw, 5rem);
-            font-weight: 400;
-            line-height: 1.1;
-        }
-
-        .about-title .line {
-            overflow: hidden;
-            display: block;
-        }
-
-        .about-title span.word {
-            display: inline-block;
-        }
-
-        .about-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .about-text p {
-            font-size: 1.25rem;
-            line-height: 1.9;
-            margin-bottom: 2.5rem;
-            color: #333;
-        }
-
-        .about-text p.highlight {
-            font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--accent);
-            line-height: 1.4;
-        }
-
-        /* MENU / PRODUCTS SECTION */
-        .products {
-            padding: 12rem 5vw;
-            background-color: var(--bg-dark);
-        }
-
-        .section-header {
+            padding: 1.8rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 6rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
-            overflow: hidden;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 80%);
+            color: white;
         }
 
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 6rem);
-            font-weight: 400;
+        .tech-card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
-        .section-header p {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-        }
-
-        .product-list {
+        .tech-card-content .arrow-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
-            flex-direction: column;
-        }
-
-        .product-item {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
+            justify-content: center;
             align-items: center;
-            padding: 3.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
-            position: relative;
-            transition: border-color 0.4s;
-        }
-
-        .product-item:hover {
-            border-color: var(--accent);
-        }
-
-        .product-num {
-            font-size: 0.9rem;
-            color: var(--accent);
-            letter-spacing: 2px;
-        }
-
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 4rem);
-            font-weight: 400;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s;
-            transform-origin: left;
-        }
-
-        .product-item:hover .product-name {
-            transform: translateX(30px);
-            color: var(--accent);
-            font-style: italic;
-        }
-
-        .product-price {
-            text-align: right;
             font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 1px;
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
         }
 
-        /* Floating Hover Image */
-        .product-hover-img {
+        .tech-card:hover .arrow-icon {
+            background: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        /* STICKY BOTTOM-LEFT FLOATING CTA BOX (EXACT AS IN VIDEO) */
+        .sticky-cta {
             position: fixed;
-            width: 350px;
-            height: 450px;
-            object-fit: cover;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8) rotate(-5deg);
-            opacity: 0;
-            pointer-events: none;
-            z-index: 10;
-            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            filter: grayscale(30%);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            bottom: 30px;
+            left: 30px;
+            z-index: 2000;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(232, 74, 36, 0.45);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: var(--transition);
         }
 
-        .product-item:hover .product-hover-img {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        .sticky-cta:hover {
+            transform: translateY(-4px) scale(1.03);
+            background: var(--accent-orange-hover);
+        }
+
+        .sticky-cta span.title {
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .sticky-cta button {
+            background: white;
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sticky-cta button:hover {
+            background: #000;
+            color: white;
         }
 
         /* FOOTER */
         footer {
-            padding: 10rem 5vw 4rem;
-            background-color: var(--bg-light);
-            color: var(--bg-dark);
+            background: var(--bg-dark);
+            color: white;
+            padding: 6rem 6% 4rem;
             text-align: center;
-            overflow: hidden;
+            border-top: 1px solid var(--border-dark);
         }
 
-        .footer-marquee {
-            width: 100vw;
-            margin-left: -5vw;
-            white-space: nowrap;
-            overflow: hidden;
-            margin-bottom: 6rem;
-            border-bottom: 1px solid var(--border-light);
-            border-top: 1px solid var(--border-light);
-            padding: 2rem 0;
+        footer h2 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
         }
 
-        .footer-marquee h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(5rem, 15vw, 12rem);
-            font-weight: 400;
-            font-style: italic;
-            display: inline-block;
-            white-space: nowrap;
-            will-change: transform;
-        }
-
-        .footer-marquee h2 span {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .footer-bottom a {
-            color: var(--bg-dark);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--accent);
+        footer p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
         @media (max-width: 900px) {
-            .hero-img-container {
-                width: 100vw;
-                height: 100vh;
-                top: 0;
-                right: 0;
-                z-index: 0;
-                opacity: 0.3 !important;
-            }
-            .hero h1, .hero p { position: relative; z-index: 2; margin-left: 0; }
-            .nav-links { display: none; }
-            .about { grid-template-columns: 1fr; padding: 6rem 5vw; gap: 3rem; }
-            .product-item { grid-template-columns: 1fr 1fr; }
-            .product-num { display: none; }
-            .footer-bottom { flex-direction: column; gap: 2rem; }
+            .diagram-section { grid-template-columns: 1fr; gap: 3rem; }
+            .diagram-cards { grid-template-columns: 1fr; }
+            .nav-center { display: none; }
+            .nav-arrow.left { left: 2%; }
+            .nav-arrow.right { right: 2%; }
+            .sticky-cta { bottom: 15px; left: 15px; right: 15px; justify-content: space-between; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Noise Overlay -->
-    <div class="noise-overlay"></div>
-
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-text">
-            <span>Cafeteriya.</span>
-        </div>
-        <div class="progress-bar-container">
-            <div class="progress-bar"></div>
-        </div>
-    </div>
-
     <!-- Custom Cursor -->
     <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
-    <nav>
-        <div class="logo hover-target">Cafeteriya.</div>
-        <ul class="nav-links">
-            <li><a href="#" class="hover-target">Our Story</a></li>
-            <li><a href="#" class="hover-target">Roastery</a></li>
-            <li><a href="#" class="hover-target">Contact</a></li>
+    <!-- EXACT NAVBAR -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <span>CoffeeTech</span><span class="icon">®</span>
+        </a>
+        <ul class="nav-center">
+            <li><a href="#" class="active">About</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Efficiency</a></li>
+            <li><a href="#">Sustainability</a></li>
         </ul>
+        <div class="nav-right">
+            <button class="btn-products">☷ Products</button>
+            <button class="btn-contact" onclick="alert('☕ Contacting CoffeeTech / Abdulaziz AI Studio...')">Contact Us</button>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h1 class="hero-title">
-            <span class="line"><span class="word">Engineering</span></span>
-            <span class="line"><span class="word gold">Coffee.</span></span>
-        </h1>
-        <p class="hero-desc">Precision roasting meets premium aesthetics. We blend the science of thermodynamics with the art of traditional Italian coffee making to create the perfect cup.</p>
-        <div class="hero-img-container">
-            <img class="hero-img" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop" alt="Coffee Machine Engineering">
+    <!-- EXACT HERO CAROUSEL SECTION -->
+    <section class="hero-carousel">
+        <div class="pills-bar">
+            <span class="pill">SFT</span>
+            <span class="pill">COFFEE ROASTER</span>
+            <span class="pill">ELECTRIC</span>
+            <span class="pill">MICRO ROASTER</span>
+        </div>
+        <h1 class="hero-title" id="machineTitle">Solar Eco</h1>
+
+        <div class="carousel-container">
+            <!-- Left Arrow -->
+            <button class="nav-arrow left" onclick="switchMachine(-1)">←</button>
+
+            <!-- Blurred Side Machines -->
+            <img src="https://images.unsplash.com/photo-1517668808822-914e167da52c?q=80&w=600&auto=format&fit=crop" class="machine-side left" id="sideLeft" alt="Previous Machine">
+
+            <!-- Main Central Stage -->
+            <div class="machine-stage">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" class="machine-img" id="mainMachine" alt="Solar Eco Roaster">
+            </div>
+
+            <!-- Blurred Right Machine -->
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop" class="machine-side right" id="sideRight" alt="Next Machine">
+
+            <!-- Right Arrow -->
+            <button class="nav-arrow right" onclick="switchMachine(1)">→</button>
+        </div>
+
+        <div class="scroll-down-hint" onclick="document.getElementById('details').scrollIntoView({behavior: 'smooth'})">
+            [ Product Details ] ↓
         </div>
     </section>
 
-    <section class="about">
-        <div class="about-title">
-            <h2 class="gsap-about">
-                <span class="line"><span class="word">The Pursuit</span></span>
-                <span class="line"><span class="word">of Perfection.</span></span>
-            </h2>
+    <!-- DETAILS TEXT BLOCK -->
+    <section class="details-section" id="details">
+        <div class="pills-bar">
+            <span class="pill">SFT</span>
+            <span class="pill">COFFEE ROASTER</span>
+            <span class="pill">ELECTRIC</span>
+            <span class="pill">MICRO ROASTER</span>
         </div>
-        <div class="about-text">
-            <p class="highlight gsap-about">"It is not just about the beans; it is about the precise manipulation of heat, time, and airflow."</p>
-            <p class="gsap-about">At Cafeteriya, we view coffee roasting as an industrial art form. Utilizing advanced thermodynamic profiles, we extract complex flavors that are mathematically perfect and aesthetically beautiful.</p>
+        <h2 class="details-title gsap-reveal">Your Automated<br>Roast Master</h2>
+        <p class="details-desc gsap-reveal">
+            The Solar Eco is a fully automatic shop roaster made for producing high-quality coffee the easiest way. It is entirely electric to eliminate emissions and maximize efficiency, incredibly silent and compact, providing the ultimate comfort experience. This award-winning roaster is your own personal roast master at the push of a button.
+        </p>
+        <button class="btn-quote gsap-reveal" onclick="alert('⚡ Generating instant price quote for Solar Eco Roaster...')">Get a price quote</button>
+    </section>
+
+    <!-- EXACT INTERACTIVE DIAGRAM & SPECIFICATION CARDS (LIGHT BEIGE BG) -->
+    <section class="diagram-section">
+        <div class="diagram-visual gsap-reveal">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" class="diagram-img" alt="Roaster Profile">
+            <!-- Pulsing Hotspots corresponding to cards -->
+            <div class="hotspot hotspot-1" onclick="highlightCard(0)" title="Detachable Chaff Collector"></div>
+            <div class="hotspot hotspot-2" onclick="highlightCard(2)" title="Protective Heat Shield"></div>
+            <div class="hotspot hotspot-3" onclick="highlightCard(6)" title="Removable Cooling Tray"></div>
+            <div class="hotspot hotspot-4" onclick="highlightCard(1)" title="Touch Screen Operation"></div>
+        </div>
+
+        <div class="diagram-cards">
+            <div class="spec-card active" onclick="highlightCard(0)">
+                <h4>Touch Screen Operation</h4>
+                <p>Intuitive touch screen interface for smooth, responsive control.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(1)">
+                <h4>Detachable Chaff Collector</h4>
+                <p>Quickly and easily perform maintenance and clean chaff deposits.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(2)">
+                <h4>Full Metal Structure</h4>
+                <p>Built entirely from metal for ultimate durability and reliability.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(3)">
+                <h4>Pyrex Monitoring Lens</h4>
+                <p>Clear visual monitoring of the entire roasting process.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(4)">
+                <h4>Protective Heat Shield</h4>
+                <p>The drum cover stays cool and completely safe to touch.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(5)">
+                <h4>Removable Cooling Tray</h4>
+                <p>Allows for easy maintenance and ultra-smooth workflow.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(6)">
+                <h4>Safety Manual Crank</h4>
+                <p>Safe manual drum rotation during sudden power shortages.</p>
+            </div>
+            <div class="spec-card" onclick="highlightCard(7)">
+                <h4>Dual Action Cooling</h4>
+                <p>Combined in-drum and outer cooling for perfect consistency.</p>
+            </div>
         </div>
     </section>
 
-    <section class="products">
-        <div class="section-header">
-            <h2 class="gsap-products">Signature Roasts</h2>
-            <p class="gsap-products">Crafted with precision.</p>
+    <!-- INFINITE MARQUEE EXACT COPY -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-text">Solar Eco / <span>Solar Eco</span> / Solar Eco / <span>Solar Eco</span> / Solar Eco / <span>Solar Eco</span> /</span>
+            <span class="marquee-text">Solar Eco / <span>Solar Eco</span> / Solar Eco / <span>Solar Eco</span> / Solar Eco / <span>Solar Eco</span> /</span>
         </div>
-        
-        <div class="product-list">
-            <!-- Product 1 -->
-            <div class="product-item hover-target gsap-item" data-img="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop">
-                <span class="product-num">01 /</span>
-                <span class="product-name">Ethiopian Yirgacheffe</span>
-                <span class="product-price">$24.00</span>
-                <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop" class="product-hover-img" alt="Coffee Pour">
+    </section>
+
+    <!-- TECHNOLOGY FEATURES EXPANDABLE GRID EXACT COPY -->
+    <section class="features-grid-section">
+        <div class="grid-header">
+            <h2>Technology Features <span class="badge">6</span></h2>
+            <div class="grid-controls">
+                <button class="ctrl-btn" onclick="zoomGrid(-1)">-</button>
+                <button class="ctrl-btn" onclick="zoomGrid(1)">+</button>
+                <button class="btn-show-all" id="showAllBtn" onclick="toggleShowAll()">Show All</button>
             </div>
-            <!-- Product 2 -->
-            <div class="product-item hover-target gsap-item" data-img="https://images.unsplash.com/photo-1495474472205-16284618a096?q=80&w=800&auto=format&fit=crop">
-                <span class="product-num">02 /</span>
-                <span class="product-name">Colombian Supremo</span>
-                <span class="product-price">$22.00</span>
-                <img src="https://images.unsplash.com/photo-1495474472205-16284618a096?q=80&w=800&auto=format&fit=crop" class="product-hover-img" alt="Coffee Beans">
+        </div>
+
+        <div class="tech-cards-grid" id="techGrid">
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Fully Automatic">
+                <div class="tech-card-content">
+                    <h3>Fully Automatic</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
             </div>
-            <!-- Product 3 -->
-            <div class="product-item hover-target gsap-item" data-img="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop">
-                <span class="product-num">03 /</span>
-                <span class="product-name">Italian Espresso Blend</span>
-                <span class="product-price">$28.00</span>
-                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" class="product-hover-img" alt="Espresso">
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" alt="4 in 1 Heating">
+                <div class="tech-card-content">
+                    <h3>4 in 1 Heating</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
+            </div>
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Fully Electric">
+                <div class="tech-card-content">
+                    <h3>Fully Electric</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
+            </div>
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1517668808822-914e167da52c?q=80&w=600&auto=format&fit=crop" alt="Lasting Quality">
+                <div class="tech-card-content">
+                    <h3>Lasting Quality</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
+            </div>
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop" alt="Smokeless Option">
+                <div class="tech-card-content">
+                    <h3>Smokeless Option</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
+            </div>
+            <div class="tech-card gsap-tech">
+                <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?q=80&w=600&auto=format&fit=crop" alt="Software Updates">
+                <div class="tech-card-content">
+                    <h3>Software Updates</h3>
+                    <div class="arrow-icon">↗</div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- STICKY BOTTOM-LEFT FLOATING CTA BOX (EXACT AS IN VIDEO) -->
+    <div class="sticky-cta">
+        <span class="title">Interested?</span>
+        <button onclick="alert('☕ Sending request for Solar Eco specification brochure & pricing table...')">Get a price quote</button>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-marquee">
-            <h2 class="marquee-text">Taste the Precision <span>—</span> Experience the Art <span>—</span> </h2>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Cafeteriya.</span>
-            <a href="#" class="hover-target">Designed by Abdulaziz AI Studio</a>
-            <span>All Rights Reserved.</span>
-        </div>
+        <h2>CoffeeTech® & Abdulaziz AI Studio</h2>
+        <p>© 2026 CoffeeTech® & Abdulaziz AI Studio. All rights reserved. Site of the Day Winner Replica.</p>
     </footer>
 
+    <!-- JS LOGIC -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // --- PRELOADER ---
-        const tlPreloader = gsap.timeline();
-        
-        tlPreloader.to(".preloader-text span", {
-            y: 0,
-            duration: 1,
-            ease: "power4.out"
-        })
-        .to(".progress-bar", {
-            width: "100%",
-            duration: 1.5,
-            ease: "power2.inOut"
-        }, "-=0.5")
-        .to(".preloader", {
-            yPercent: -100,
-            duration: 1.2,
-            ease: "expo.inOut",
-            delay: 0.2
-        })
-        .call(initHeroAnimations, null, "-=0.5"); // Start hero animation before preloader fully leaves
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
 
-        // --- HERO ANIMATIONS ---
-        function initHeroAnimations() {
-            const tlHero = gsap.timeline();
-            
-            tlHero.to(".hero h1 .word", {
-                y: 0,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power4.out"
-            })
-            .to(".hero-img-container", {
-                opacity: 1,
-                duration: 1.5,
-                ease: "power2.out"
-            }, "-=0.8")
-            .to(".hero-desc", {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power3.out"
-            }, "-=1")
-            .fromTo(".hero-img", {
-                scale: 1.2
-            }, {
-                scale: 1,
-                duration: 2,
-                ease: "power2.out"
-            }, "-=1.5");
+        // Carousel Logic
+        const machines = [
+            { name: "Solar Eco", main: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop", left: "https://images.unsplash.com/photo-1517668808822-914e167da52c?q=80&w=600&auto=format&fit=crop", right: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop" },
+            { name: "Avirnaki Pro", main: "https://images.unsplash.com/photo-1517668808822-914e167da52c?q=80&w=800&auto=format&fit=crop", left: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop", right: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" },
+            { name: "Lab Extractor", main: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop", left: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop", right: "https://images.unsplash.com/photo-1517668808822-914e167da52c?q=80&w=600&auto=format&fit=crop" }
+        ];
+        let currentIdx = 0;
+
+        function switchMachine(dir) {
+            currentIdx = (currentIdx + dir + machines.length) % machines.length;
+            const target = machines[currentIdx];
+
+            gsap.to(".machine-img", {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => {
+                    document.getElementById("machineTitle").innerText = target.name;
+                    document.getElementById("mainMachine").src = target.main;
+                    document.getElementById("sideLeft").src = target.left;
+                    document.getElementById("sideRight").src = target.right;
+                    gsap.to(".machine-img", { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" });
+                }
+            });
         }
 
-        // --- CUSTOM CURSOR ---
-        const cursor = document.querySelector('.cursor');
-        const follower = document.querySelector('.cursor-follower');
-        const hoverTargets = document.querySelectorAll('.hover-target, .product-item, a');
-        
-        let mouseX = 0, mouseY = 0;
-        let followerX = 0, followerY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
-
-        // Smooth follow
-        gsap.ticker.add(() => {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
-            
-            gsap.set(follower, { x: followerX, y: followerY });
-            
-            // Move hover images with mouse smoothly
-            gsap.to('.product-hover-img', {
-                x: mouseX - window.innerWidth / 2,
-                y: mouseY - window.innerHeight / 2,
-                duration: 0.8,
-                ease: "power3.out"
+        // Highlight Spec Cards on Click
+        function highlightCard(idx) {
+            const cards = document.querySelectorAll('.spec-card');
+            cards.forEach((c, i) => {
+                if (i === idx) c.classList.add('active');
+                else c.classList.remove('active');
             });
-        });
+        }
 
-        hoverTargets.forEach(target => {
-            target.addEventListener('mouseenter', () => cursor.classList.add('active'));
-            target.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
+        // Zoom/Show All Grid Controls
+        let gridCols = 340;
+        function zoomGrid(dir) {
+            gridCols = Math.max(240, Math.min(500, gridCols + dir * 60));
+            document.getElementById("techGrid").style.gridTemplateColumns = `repeat(auto-fill, minmax(${gridCols}px, 1fr))`;
+        }
 
-        // --- SCROLL ANIMATIONS ---
-        
-        // About Section
-        gsap.utils.toArray('.gsap-about .word').forEach((word, i) => {
-            gsap.fromTo(word, 
-                { y: "100%" },
+        let isAllShown = false;
+        function toggleShowAll() {
+            isAllShown = !isAllShown;
+            const btn = document.getElementById("showAllBtn");
+            if (isAllShown) {
+                btn.innerText = "Close All";
+                btn.style.background = "#121212";
+                btn.style.color = "white";
+                gsap.fromTo(".gsap-tech", { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.08, duration: 0.5 });
+            } else {
+                btn.innerText = "Show All";
+                btn.style.background = "white";
+                btn.style.color = "#121212";
+            }
+        }
+
+        // Scroll Animations
+        gsap.utils.toArray('.gsap-reveal').forEach(el => {
+            gsap.fromTo(el,
+                { y: 60, opacity: 0 },
                 {
-                    scrollTrigger: {
-                        trigger: ".about-title",
-                        start: "top 80%",
-                    },
-                    y: "0%",
+                    scrollTrigger: { trigger: el, start: "top 85%" },
+                    y: 0,
+                    opacity: 1,
                     duration: 1,
-                    delay: i * 0.1,
-                    ease: "power4.out"
+                    ease: "power3.out"
                 }
             );
         });
 
-        gsap.fromTo('.about-text p', 
-            { y: 30, opacity: 0 },
-            {
-                scrollTrigger: {
-                    trigger: ".about-text",
-                    start: "top 75%",
-                },
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            }
-        );
-
-        // Products Section
-        gsap.fromTo('.gsap-products', 
+        gsap.fromTo('.gsap-tech',
             { y: 50, opacity: 0 },
             {
-                scrollTrigger: {
-                    trigger: ".section-header",
-                    start: "top 85%",
-                },
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            }
-        );
-
-        gsap.fromTo('.gsap-item', 
-            { y: 50, opacity: 0 },
-            {
-                scrollTrigger: {
-                    trigger: ".product-list",
-                    start: "top 80%",
-                },
+                scrollTrigger: { trigger: ".tech-cards-grid", start: "top 80%" },
                 y: 0,
                 opacity: 1,
                 duration: 0.8,
-                stagger: 0.15,
+                stagger: 0.12,
                 ease: "power3.out"
             }
         );
-
-        // Image Parallax on scroll
-        gsap.to(".hero-img", {
-            scrollTrigger: {
-                trigger: ".hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: 1
-            },
-            yPercent: 20
-        });
-
-        // Footer Marquee
-        gsap.to(".marquee-text", {
-            xPercent: -50,
-            ease: "none",
-            scrollTrigger: {
-                trigger: "footer",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1
-            }
-        });
-        
-        // Duplicate marquee text for infinite loop look
-        const marquee = document.querySelector('.marquee-text');
-        marquee.innerHTML += marquee.innerHTML;
-
     </script>
 </body>
 </html>
